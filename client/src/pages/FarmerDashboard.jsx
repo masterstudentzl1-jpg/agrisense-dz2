@@ -414,17 +414,17 @@ const ALERTS_DATA = [
 ]
 
 const SENSORS_DATA = [
-  { id:'S001', name:'Soil Probe A1', type:'Moisture', val:'42%', loc:'Blida', status:'online', icon:'💧', iconClass:'blue', valColor:'blue', battery:87, signal:95 },
-  { id:'S002', name:'Thermo Node B3', type:'Temperature', val:'31.4°C', loc:'Sétif', status:'online', icon:'🌡️', iconClass:'amber', valColor:'amber', battery:62, signal:88 },
-  { id:'S003', name:'Hygro Sensor C2', type:'Humidity', val:'68%', loc:'Tiaret', status:'warning', icon:'💨', iconClass:'teal', valColor:'teal', battery:21, signal:70 },
+  { id:'S001', name:'Soil Probe A1', type:'Moisture', val:'42%', loc:'bouira', status:'online', icon:'💧', iconClass:'blue', valColor:'blue', battery:87, signal:95 },
+  { id:'S002', name:'Thermo Node B3', type:'Temperature', val:'31.4°C', loc:'blida', status:'online', icon:'🌡️', iconClass:'amber', valColor:'amber', battery:62, signal:88 },
+  { id:'S003', name:'Hygro Sensor C2', type:'Humidity', val:'68%', loc:'tizi', status:'warning', icon:'💨', iconClass:'teal', valColor:'teal', battery:21, signal:70 },
   { id:'S004', name:'Rain Gauge D1', type:'Rainfall', val:'0 mm', loc:'Biskra', status:'online', icon:'🌧️', iconClass:'purple', valColor:'blue', battery:95, signal:91 },
 ]
 
 const FIELDS_DATA = [
-  { name:'Field Alpha', loc:'Blida', accent:'green', status:'healthy', crop:'Wheat', moisture:{v:'42%',c:'blue'}, temp:{v:'28°C',c:'amber'}, sensors:{v:'5',c:'green'}, health:72, area:'24 ha · F01' },
-  { name:'Field Beta', loc:'Bouira', accent:'blue', status:'needs-water', crop:'Barley', moisture:{v:'30%',c:'blue'}, temp:{v:'31°C',c:'amber'}, sensors:{v:'4',c:'green'}, health:55, area:'18 ha · F02' },
-  { name:'Field Gamma', loc:'Biskra', accent:'red', status:'at-risk', crop:'Dates', moisture:{v:'18%',c:'blue'}, temp:{v:'38°C',c:'amber'}, sensors:{v:'3',c:'green'}, health:32, area:'12 ha · F03' },
-  { name:'Field Delta', loc:'Tiaret', accent:'amber', status:'healthy', crop:'Olive', moisture:{v:'55%',c:'blue'}, temp:{v:'24°C',c:'amber'}, sensors:{v:'6',c:'green'}, health:88, area:'30 ha · F04' },
+  { name:'Field Alpha', loc:'Bouira', accent:'green', status:'healthy', crop:'Wheat', moisture:{v:'42%',c:'blue'}, temp:{v:'28°C',c:'amber'}, sensors:{v:'5',c:'green'}, health:72, area:'24 ha · F01' },
+  { name:'Field Beta', loc:'Blida', accent:'blue', status:'needs-water', crop:'Barley', moisture:{v:'30%',c:'blue'}, temp:{v:'31°C',c:'amber'}, sensors:{v:'4',c:'green'}, health:55, area:'18 ha · F02' },
+  { name:'Field Gamma', loc:'tizi', accent:'red', status:'at-risk', crop:'Dates', moisture:{v:'18%',c:'blue'}, temp:{v:'38°C',c:'amber'}, sensors:{v:'3',c:'green'}, health:32, area:'12 ha · F03' },
+  { name:'Field Delta', loc:'Biskra', accent:'amber', status:'healthy', crop:'Olive', moisture:{v:'55%',c:'blue'}, temp:{v:'24°C',c:'amber'}, sensors:{v:'6',c:'green'}, health:88, area:'30 ha · F04' },
 ]
 
 // ─── MAIN COMPONENT ──────────────────────────────────────────────────────────
@@ -446,8 +446,8 @@ export default function FarmerDashboard() {
     return () => clearInterval(id)
   }, [])
 
-  const firstName = user?.firstName || "lyn"
-  const lastName  = user?.lastName  || "zouidi"
+  const firstName = user?.firstName || "farmer"
+  const lastName  = user?.lastName  || ""
   const initials  = `${firstName[0]}${lastName[0]}`
   const hour = now.getHours()
   const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening'
@@ -872,14 +872,14 @@ export default function FarmerDashboard() {
                 <RadarChart
                   datasets={[
                     { data:[72,80,65,70,75,68], color:'#16a34a', label:'Bouira'  },
-                    { data:[60,55,70,65,60,55], color:'#06b6d4', label:'Sétif'  },
-                    { data:[50,60,55,50,58,52], color:'#f59e0b', label:'Tiaret' },
+                    { data:[60,55,70,65,60,55], color:'#06b6d4', label:'Blida'  },
+                    { data:[50,60,55,50,58,52], color:'#f59e0b', label:'Tizi Ouzou' },
                     { data:[45,50,48,52,44,46], color:'#8b5cf6', label:'Biskra' },
                   ]}
                   labels={['Moisture','Temp Ctrl','Humidity','Yield','Sensor Up.','Irrigation']}
                 />
                 <div className="chart-legend" style={{marginTop:'1rem'}}>
-                  {[{c:'#16a34a',l:'Blida'},{c:'#06b6d4',l:'Sétif'},{c:'#f59e0b',l:'Tiaret'},{c:'#8b5cf6',l:'Biskra'}].map(d=>(
+                  {[{c:'#16a34a',l:'Bouira'},{c:'#06b6d4',l:'Blida'},{c:'#f59e0b',l:'Tizi Ouzou'},{c:'#8b5cf6',l:'Biskra'}].map(d=>(
                     <div key={d.l} className="legend-item"><span className="legend-dot" style={{background:d.c}}/>{d.l}</div>
                   ))}
                 </div>

@@ -93,9 +93,9 @@ const styles = `
 `
 
 const ASSIGNMENTS = [
-  { num:'01', title:'Install AgroSense Pro — Benali Farm', priority:'high', farm:'Ahmed Benali', wilaya:'Sétif', date:'Today, 9:00 AM', desc:'Install 3× AgroSense Pro sensors in fields A, B, and C. Configure LoRa gateway and pair all devices to the farmer dashboard. Test readings before leaving.' },
-  { num:'02', title:'Replace IrriBot sensor — Ouali Farm', priority:'medium', farm:'Fatima Ouali', wilaya:'Blida', date:'Tomorrow, 2:00 PM', desc:'Faulty pressure sensor needs replacement. Bring spare IrriBot valve + pressure module. Run full system diagnostics after swap.' },
-  { num:'03', title:'Network setup — Meziane Greenhouse', priority:'low', farm:'Karim Meziane', wilaya:'Oran', date:'Dec 18, 10:00 AM', desc:'New greenhouse installation. Set up SolarHub gateway on roof, run sensor cables through irrigation trenches, calibrate all 6 climate sensors.' },
+  { num:'01', title:'Install AgroSense Pro — Farm1', priority:'high', farm:'f1', wilaya:'Sétif', date:'Today, 9:00 AM', desc:'Install 3× AgroSense Pro sensors in fields A, B, and C. Configure LoRa gateway and pair all devices to the farmer dashboard. Test readings before leaving.' },
+  { num:'02', title:'Replace IrriBot sensor —  Farm2', priority:'medium', farm:'f2', wilaya:'Blida', date:'Tomorrow, 2:00 PM', desc:'Faulty pressure sensor needs replacement. Bring spare IrriBot valve + pressure module. Run full system diagnostics after swap.' },
+  { num:'03', title:'Network setup —  Greenhouse', priority:'low', farm:'f3', wilaya:'Oran', date:'Dec 18, 10:00 AM', desc:'New greenhouse installation. Set up SolarHub gateway on roof, run sensor cables through irrigation trenches, calibrate all 6 climate sensors.' },
 ]
 
 const STATUS_OPTS = ['Completed ✅','In Progress 🔧','Pending ⏳','Blocked ❌']
@@ -106,8 +106,8 @@ export default function TechnicianDashboard() {
   const [reportStatus, setReportStatus] = useState('Completed ✅')
   const [sent, setSent] = useState(false)
 
-  const firstName = user?.firstName || 'Sofiane'
-  const lastName  = user?.lastName  || 'Meziane'
+  const firstName = user?.firstName || 'technician'
+  const lastName  = user?.lastName  || ''
   const initials  = `${firstName[0]}${lastName[0]}`
   const now = new Date()
   const dateStr = now.toLocaleDateString('en-GB', { weekday:'short', month:'short', day:'numeric' }) + ' · ' + now.toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' })

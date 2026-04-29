@@ -107,17 +107,17 @@ const PRODUCTS = [
 ]
 
 const ORDERS = [
-  { id:'ORD-2401', farmer:'Ahmed Benali', loc:'Sétif', items:'2× AgroSense Pro, 1× Gateway', total:'32,000 DZD', status:'new', date:'Today' },
-  { id:'ORD-2400', farmer:'Fatima Ouali', loc:'Blida', items:'1× IrriBot Controller', total:'8,500 DZD', status:'packed', date:'Yesterday' },
-  { id:'ORD-2399', farmer:'Karim Meziane', loc:'Oran', items:'3× AgroSense Pro, 2× WeatherNode', total:'57,500 DZD', status:'shipped', date:'2 days ago' },
+  { id:'ORD-2401', farmer:'farmer1', loc:'Sétif', items:'2× AgroSense Pro, 1× Gateway', total:'32,000 DZD', status:'new', date:'Today' },
+  { id:'ORD-2400', farmer:'farmer2', loc:'Blida', items:'1× IrriBot Controller', total:'8,500 DZD', status:'packed', date:'Yesterday' },
+  { id:'ORD-2399', farmer:'farmer3', loc:'Oran', items:'3× AgroSense Pro, 2× WeatherNode', total:'57,500 DZD', status:'shipped', date:'2 days ago' },
 ]
 
 export default function SupplierDashboard() {
   const { user } = useAuth()
   const [tab, setTab] = useState('overview')
 
-  const firstName = user?.firstName || 'Karima'
-  const lastName  = user?.lastName  || 'Ouali'
+  const firstName = user?.firstName || 'suplier'
+  const lastName  = user?.lastName  || ''
   const initials  = `${firstName[0]}${lastName[0]}`
   const now = new Date()
   const dateStr = now.toLocaleDateString('en-GB', { weekday:'short', month:'short', day:'numeric' }) + ' · ' + now.toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' })
