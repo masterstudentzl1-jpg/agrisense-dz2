@@ -14,11 +14,11 @@ export function AuthProvider({ children }) {
     // Mock login for now:
     const mockUsers = {
       'farmer@test.com':     { id: '1', firstName: 'lyna',  lastName: 'Zouidi',   role: 'farmer',     wilaya: 'Bouira' },
-      'supplier@test.com':   { id: '2', firstName: 'Karima', lastName: 'Ouali',    role: 'supplier',   wilaya: 'Alger' },
-      'technician@test.com': { id: '3', firstName: 'Sofiane',lastName: 'Meziane',  role: 'technician', wilaya: 'Bouira'  },
+      'supplier@test.com':   { id: '2', firstName: 'suplier', lastName: 'suplier',    role: 'supplier',   wilaya: 'Alger' },
+      'technician@test.com': { id: '3', firstName: 'technician',lastName: 'technician',  role: 'technician', wilaya: 'Bouira'  },
     }
     const found = mockUsers[email]
-    if (found && password === 'password123') {
+    if (found && password === '123') {
       setUser({ ...found, email, token: 'mock-jwt-token' })
       return { success: true, role: found.role }
     }
