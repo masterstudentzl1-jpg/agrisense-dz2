@@ -13,9 +13,9 @@ export function AuthProvider({ children }) {
 
     // Mock login for now:
     const mockUsers = {
-      'farmer@test.com':     { id: '1', firstName: 'lyna',  lastName: 'Zouidi',   role: 'farmer',     wilaya: 'Bouira' },
-      'supplier@test.com':   { id: '2', firstName: 'suplier', lastName: 'suplier',    role: 'supplier',   wilaya: 'Alger' },
-      'technician@test.com': { id: '3', firstName: 'technician',lastName: 'technician',  role: 'technician', wilaya: 'Bouira'  },
+      'farmer@test.com':     { id: '1', firstName: 'farmer',  lastName: '',   role: 'farmer',     wilaya: 'Bouira' },
+      'supplier@test.com':   { id: '2', firstName: 'suplier', lastName: '',    role: 'supplier',   wilaya: 'Alger' },
+      'technician@test.com': { id: '3', firstName: 'technician',lastName: '',  role: 'technician', wilaya: 'Bouira'  },
     }
     const found = mockUsers[email]
     if (found && password === '123') {

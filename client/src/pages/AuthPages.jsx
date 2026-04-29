@@ -312,7 +312,7 @@ export function Login() {
               Welcome back<br />
               <span className="accent">to smarter</span> farming.
             </h1>
-            <p>Sign in to access your AgriSense dashboard and stay connected to your IoT sensors across Algeria's 48 wilayas.</p>
+            <p>Sign in to access your AgriSense dashboard and stay connected to your IoT sensors across Algeria's 69 wilayas.</p>
             <div className="auth-checklist">
               {[
                 'Real-time crop monitoring dashboard',
@@ -336,7 +336,7 @@ export function Login() {
             </p>
 
             <div className="test-hint">
-              <p>🧪 Test accounts — password: password123</p>
+              <p>Test accounts — password: 123</p>
               {['farmer@test.com','supplier@test.com','technician@test.com'].map(e => (
                 <div key={e}><span>{e}</span></div>
               ))}
