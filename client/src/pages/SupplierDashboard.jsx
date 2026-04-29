@@ -107,9 +107,9 @@ const PRODUCTS = [
 ]
 
 const ORDERS = [
-  { id:'ORD-2401', farmer:'farmer1', loc:'Sétif', items:'2× AgroSense Pro, 1× Gateway', total:'32,000 DZD', status:'new', date:'Today' },
+  { id:'ORD-2401', farmer:'farmer1', loc:'Bouira', items:'2× AgroSense Pro, 1× Gateway', total:'32,000 DZD', status:'new', date:'Today' },
   { id:'ORD-2400', farmer:'farmer2', loc:'Blida', items:'1× IrriBot Controller', total:'8,500 DZD', status:'packed', date:'Yesterday' },
-  { id:'ORD-2399', farmer:'farmer3', loc:'Oran', items:'3× AgroSense Pro, 2× WeatherNode', total:'57,500 DZD', status:'shipped', date:'2 days ago' },
+  { id:'ORD-2399', farmer:'farmer3', loc:'Tizi ouzou', items:'3× AgroSense Pro, 2× WeatherNode', total:'57,500 DZD', status:'shipped', date:'2 days ago' },
 ]
 
 export default function SupplierDashboard() {
