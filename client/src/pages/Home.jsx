@@ -257,7 +257,7 @@ export default function AgriSenseDZ() {
                 <div className="product-footer">
                   <span className="product-price">{p.price}</span>
                   {/* ✅ TASK 2: "Add to Cart" button on home preview */}
-                  <button className="btn-sm">Add to Cart</button>
+                  
                 </div>
               </div>
             </div>
