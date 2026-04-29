@@ -117,7 +117,7 @@ export default function SupplierDashboard() {
   const [tab, setTab] = useState('overview')
 
   const firstName = user?.firstName || 'suplier'
-  const lastName  = user?.lastName  || ''
+  const lastName  = user?.lastName  || 'supp'
   const initials  = `${firstName[0]}${lastName[0]}`
   const now = new Date()
   const dateStr = now.toLocaleDateString('en-GB', { weekday:'short', month:'short', day:'numeric' }) + ' · ' + now.toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' })

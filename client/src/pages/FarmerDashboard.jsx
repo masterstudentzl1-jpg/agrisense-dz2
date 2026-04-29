@@ -447,7 +447,7 @@ export default function FarmerDashboard() {
   }, [])
 
   const firstName = user?.firstName || "farmer"
-  const lastName  = user?.lastName  || ""
+  const lastName  = user?.lastName  || "far"
   const initials  = `${firstName[0]}${lastName[0]}`
   const hour = now.getHours()
   const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening'
