@@ -980,7 +980,7 @@ export default function FarmerDashboard() {
                       {[
                         {label:'Full Name',val:`${firstName} ${lastName}`},
                         {label:'Email Address',val:`${firstName.toLowerCase()}.${lastName.toLowerCase()}@farm.dz`},
-                        {label:'Phone Number',val:'+213 555 123 456'},
+                        {label:'Phone Number',val:'+213 XXX XXX XXX'},
                         {label:'Farm Name',val:'Ferme '},
                         {label:'Farm Size (ha)',val:'80'},
                         {label:'Wilaya',val:'10 – Bouia'},
