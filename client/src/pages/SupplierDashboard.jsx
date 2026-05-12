@@ -246,10 +246,10 @@ const INIT_PRODUCTS = [
 ]
 
 const INIT_ORDERS = [
-  { id:'ORD-2401', farmer:'Ahmed Benali', loc:'Bouira', items:'2× AgroSense Pro, 1× SolarHub Gateway', total:32000, status:'new', date:'Today, 10:24 AM' },
-  { id:'ORD-2400', farmer:'Fatima Zohra', loc:'Blida', items:'1× IrriBot Controller, 2× WeatherNode', total:27300, status:'packed', date:'Yesterday, 03:45 PM' },
-  { id:'ORD-2399', farmer:'Mohamed Khaled', loc:'Tizi Ouzou', items:'3× AgroSense Pro', total:38700, status:'shipped', date:'2 days ago' },
-  { id:'ORD-2398', farmer:'Nadia Lounis', loc:'Sétif', items:'1× CropCam AI, 2× WeatherNode', total:38700, status:'new', date:'3 days ago' },
+  { id:'ORD-2401', farmer:'costumer1', loc:'Bouira', items:'2× AgroSense Pro, 1× SolarHub Gateway', total:32000, status:'new', date:'Today, 10:24 AM' },
+  { id:'ORD-2400', farmer:'costumer2', loc:'Blida', items:'1× IrriBot Controller, 2× WeatherNode', total:27300, status:'packed', date:'Yesterday, 03:45 PM' },
+  { id:'ORD-2399', farmer:'costumer3', loc:'Tizi Ouzou', items:'3× AgroSense Pro', total:38700, status:'shipped', date:'2 days ago' },
+  { id:'ORD-2398', farmer:'costumer4', loc:'Sétif', items:'1× CropCam AI, 2× WeatherNode', total:38700, status:'new', date:'3 days ago' },
 ]
 
 const STATUS_CYCLE = { new:'packed', packed:'shipped', shipped:'shipped' }
@@ -551,7 +551,7 @@ export default function SupplierDashboard() {
               </div>
               <div className="products-section">
                 <div className="products-head">
-                  <h3>📦 Top Products</h3>
+                  <h3> Top Products</h3>
                   <a onClick={() => handleTabChange('products')}>Manage all →</a>
                 </div>
                 <div style={{ overflowX: 'auto' }}>
@@ -594,7 +594,7 @@ export default function SupplierDashboard() {
               </div>
               <div className="products-section">
                 <div className="products-head">
-                  <h3>📦 All Products ({filteredProducts.length})</h3>
+                  <h3> All Products ({filteredProducts.length})</h3>
                   <button className="btn-primary" onClick={() => setShowAddProduct(true)}>+ List New Product</button>
                 </div>
                 {filteredProducts.length === 0
@@ -783,7 +783,7 @@ export default function SupplierDashboard() {
               </div>
               <div className="modal-field">
                 <label>Emoji Icon</label>
-                <input placeholder="e.g. 🌱" value={newProduct.emoji} onChange={e => setNewProduct(p => ({ ...p, emoji: e.target.value }))} />
+                <input placeholder="e.g. " value={newProduct.emoji} onChange={e => setNewProduct(p => ({ ...p, emoji: e.target.value }))} />
               </div>
               <div className="modal-field">
                 <label>Price (DZD) *</label>
