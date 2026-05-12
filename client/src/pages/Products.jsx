@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+
 import hp from '../assets/hp.jpg'
 
 const styles = `
@@ -10,7 +9,7 @@ const styles = `
 
   .products-hero {
     position: relative; padding: 140px 20px 80px; color: white; text-align: center;
-    background-image: url(${hp});
+    
     background-size: cover; background-position: center;
   }
   .products-hero::before {
@@ -419,7 +418,7 @@ function CheckoutModal({ cart, onClose, onSuccess }) {
   const [cibData, setCibData] = useState({ name:'', card:'', expiry:'', cvv:'' })
   const [errors, setErrors] = useState({})
   const [cibErrors, setCibErrors] = useState({})
-  const [orderRef] = useState('AGR-' + Math.random().toString(36).substr(2,8).toUpperCase())
+ const [orderRef] = useState('AGR-' + Math.random().toString(36).slice(2, 10).toUpperCase())
 
   const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0)
   const total = subtotal + DELIVERY_FEE
@@ -459,7 +458,7 @@ function CheckoutModal({ cart, onClose, onSuccess }) {
     {
       key: 'algerie_poste',
       icon: '🟡',
-      label: 'Algérie Poste — CCP / Barid"E-Pay',
+      label: "Algérie Poste — CCP / Barid 'E-Pay",
       sub: 'Transfer via CCP account or Barid\'E-Pay app',
       badge: 'badge-algerie-poste',
       badgeText: '🇩🇿 Most popular in Algeria'
@@ -746,7 +745,10 @@ export default function Products() {
       <style>{styles}</style>
     
 
-      <section className="products-hero">
+      <section
+  className="products-hero"
+  style={{ backgroundImage: `url(${hp})` }}
+>
         <div className="section-header reveal">
           <div className="tag">Our Products</div>
           <h1>Smart IoT Solutions</h1>
