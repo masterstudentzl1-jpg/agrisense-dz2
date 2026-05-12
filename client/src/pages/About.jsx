@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import farmerImg from '../assets/farmer.jpg'
+import CEO from '../assets/CEO.png'
 import { useEffect, useState } from "react";
 
 const styles = `
@@ -139,6 +140,51 @@ const styles = `
     height: 180px; background: linear-gradient(135deg, #bbf7d0, #86efac);
     display: flex; align-items: center; justify-content: center; font-size: 3.5rem;
   }
+    .team-image-wrapper {
+  width: 90px;
+  height: 90px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto;
+
+  background: linear-gradient(
+    135deg,
+    #f0fff4,
+    #dcfce7
+  );
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 10px 25px rgba(34, 197, 94, 0.15),
+    inset 0 1px 1px rgba(255,255,255,0.8);
+
+  transition: all 0.3s ease;
+}
+
+.team-image-wrapper:hover {
+  transform: translateY(-5px) scale(1.03);
+
+  box-shadow:
+    0 18px 35px rgba(34, 197, 94, 0.22),
+    inset 0 1px 1px rgba(255,255,255,0.8);
+}
+
+.team-image {
+  width: 52px;
+  height: 52px;
+
+  object-fit: contain;
+
+  transition: transform 0.3s ease;
+}
+
+.team-image-wrapper:hover .team-image {
+  transform: scale(1.08);
+}
   .team-info { padding: 1.25rem; }
   .team-info h4 { font-size: 0.95rem; font-weight: 700; color: #0d1f0f; margin-bottom: 3px; }
   .team-info .role { font-size: 0.8rem; color: #22c55e; font-weight: 600; margin-bottom: 0.5rem; }
@@ -146,7 +192,7 @@ const styles = `
 `
 
 const team = [
-  { emoji: '👩‍💻', name: 'Zouidi Lyna ', role: 'CEO & Co-Founder', bio: 'Agricultural engineer & entrepreneur from Bouira with 5 years in tech.' },
+  { emoji: '🖳' , name: 'Zouidi Lyna ', role: 'CEO & Co-Founder', bio: 'Agricultural engineer & entrepreneur from Bouira with 5 years in tech.' },
   { emoji: '👩‍🔬', name: '', role: 'CTO', bio: 'Embedded systems expert, built the LoRa sensor stack from scratch.' },
   { emoji: '👨‍🌾', name: '', role: 'Head of Agronomy', bio: 'PhD in soil science from ENSA Alger. Leads our crop intelligence research.' },
   { emoji: '👩‍💼', name: '', role: 'Head of Sales', bio: 'Manages field partnerships across 18 wilayas in northern Algeria.' },
@@ -168,7 +214,7 @@ export default function About() {
   return (
     <>
       <style>{styles}</style>
-      <Navbar />
+      
 
       <div className="about-page">
         {/* Hero */}

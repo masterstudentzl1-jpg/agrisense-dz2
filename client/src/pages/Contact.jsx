@@ -239,10 +239,10 @@ export default function Contact() {
             <h2>Reach us directly</h2>
             <p>We're based in Algiers and serve farms across all 58 wilayas. Our team speaks Arabic, French, and English.</p>
             {[
-              { icon: '📍', label: 'Address', value: 'Incubateur Bouira UMAO', sub: 'Bouira, Algérie' },
-              { icon: '📞', label: 'Phone', value: '+213 0781092285', sub: 'Mon–Sat, 8h–18h' },
-              { icon: '✉️', label: 'Email', value: 'masterstudentzl1@gmail.com', sub: 'We reply within 24h' },
-              { icon: '🕐', label: 'Hours', value: 'Monday – Saturday', sub: '8:00 – 18:00 ' },
+              { icon: '⚲', label: 'Address', value: 'Incubateur Bouira UMAO', sub: 'Bouira, Algérie' },
+              { icon: '✆', label: 'Phone', value: '+213 0781092285', sub: 'Mon–Sat, 8h–18h' },
+              { icon: '@', label: 'Email', value: 'masterstudentzl1@gmail.com', sub: 'We reply within 24h' },
+              { icon: '⏲', label: 'Hours', value: 'Monday – Saturday', sub: '8:00 – 18:00 ' },
             ].map(item => (
               <div key={item.label} className="info-item">
                 <div className="info-icon">{item.icon}</div>
@@ -253,7 +253,7 @@ export default function Contact() {
                 </div>
               </div>
             ))}
-            <div className="map-placeholder">📍 Incubateur Bouira UAMO, Bouira</div>
+            <div className="map-placeholder">⚲ Incubateur Bouira UAMO, Bouira</div>
           </div>
 
           {/* Form */}

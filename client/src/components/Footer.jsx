@@ -132,17 +132,17 @@ export default function Footer() {
             <h4>Contact Us</h4>
 
             <div className="contact-item">
-              <span className="contact-icon">📍</span>
+              <span className="contact-icon">⚲</span>
               <span>Incubateur de Bouira UAMO, Bouira, Algérie</span>
             </div>
 
             <div className="contact-item">
-              <span className="contact-icon">📞</span>
+              <span className="contact-icon">🕻</span>
               <span>+213 0781092285</span>
             </div>
 
             <div className="contact-item">
-              <span className="contact-icon">✉️</span>
+              <span className="contact-icon">✉︎</span>
               <span>masterstudentzl1@gmail.com</span>
             </div>
           </div>

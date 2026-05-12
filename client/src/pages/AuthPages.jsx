@@ -307,7 +307,7 @@ export function Login() {
         <div className="auth-body">
           {/* Left */}
           <div className="auth-left">
-            <div className="auth-left-badge">🌿 Smart Farming Platform</div>
+            <div className="auth-left-badge"> Smart Farming Platform</div>
             <h1>
               Welcome back<br />
               <span className="accent">to smarter</span> farming.
@@ -348,7 +348,7 @@ export function Login() {
               <div className="form-group">
                 <div className="form-label"><span>Email address</span></div>
                 <div className="input-wrap">
-                  <span className="input-icon">✉</span>
+                  <span className="input-icon"></span>
                   <input name="email" type="email" placeholder="you@example.com" value={form.email} onChange={handle} required />
                 </div>
               </div>
@@ -359,10 +359,10 @@ export function Login() {
                   <a href="#">Forgot password?</a>
                 </div>
                 <div className="input-wrap">
-                  <span className="input-icon">🔒</span>
+                  <span className="input-icon"></span>
                   <input name="password" type={showPass ? 'text' : 'password'} placeholder="••••••••" value={form.password} onChange={handle} required />
                   <button type="button" className="input-eye" onClick={() => setShowPass(!showPass)}>
-                    {showPass ? '🙈' : '👁'}
+                    {showPass ? '👁' : '👁'}
                   </button>
                 </div>
               </div>
@@ -403,9 +403,9 @@ export function Signup() {
   }
 
   const roles = [
-    { key: 'farmer',     emoji: '🌾', label: 'Farmer' },
-    { key: 'supplier',   emoji: '🏭',   label: 'Supplier' },
-    { key: 'technician', emoji: '🔧',   label: 'Technician' },
+    { key: 'farmer',     emoji: '⸙', label: 'Farmer' },
+    { key: 'supplier',   emoji: '⛟',   label: 'Supplier' },
+    { key: 'technician', emoji: '⚒',   label: 'Technician' },
   ]
 
   return (
@@ -430,7 +430,7 @@ export function Signup() {
         <div className="auth-body">
           {/* Left */}
           <div className="auth-left">
-            <div className="auth-left-badge">🌿 Join Algeria's #1 AgriTech Platform</div>
+            <div className="auth-left-badge"> Join Algeria's #1 AgriTech Platform</div>
             <h1>
               Grow smarter.<br />
               <span className="accent">Farm better.</span>
@@ -500,7 +500,7 @@ export function Signup() {
               <div className="form-group">
                 <div className="form-label"><span>Password</span></div>
                 <div className="input-wrap">
-                  <span className="input-icon">🔒</span>
+                  <span className="input-icon"></span>
                   <input name="password" type="password" placeholder="Min 8 characters" value={form.password} onChange={handle} required minLength={8} />
                 </div>
               </div>

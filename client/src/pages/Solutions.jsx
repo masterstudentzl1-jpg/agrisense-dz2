@@ -110,59 +110,59 @@ const styles = `
 `
 
 const tabs = [
-  { label: 'Cereals & Grains', icon: '🌾' },
-  { label: 'Orchards & Arboriculture', icon: '🌳' },
-  { label: 'Irrigated Vegetables', icon: '🥦' },
-  { label: 'Greenhouses', icon: '🏗️' },
+  { label: 'Cereals & Grains', icon: '' },
+  { label: 'Orchards & Arboriculture', icon: '' },
+  { label: 'Irrigated Vegetables', icon: '' },
+  { label: 'Greenhouses', icon: '' },
 ]
 
 const solutions = {
   'Cereals & Grains': {
-    badge: '🌾 Cereals & Grains',
+    badge: ' Cereals & Grains',
     title: 'Maximize Yield Across the Hauts Plateaux',
     desc: 'Our IoT sensors are optimized for large-scale cereal and grain cultivation in the semi-arid regions of Algeria. Get real-time soil analytics, weather forecasts, and precision irrigation scheduling tailored for wheat, barley, and corn.',
     img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80',
     features: [
-      { icon: '🌡️', title: 'Soil Temperature Mapping', desc: 'Monitor field-wide temperature gradients to optimize planting windows and germination rates.' },
-      { icon: '💧', title: 'Precision Irrigation', desc: 'Cut water usage by 40% with zone-based smart irrigation triggered by real sensor readings.' },
-      { icon: '📊', title: 'Yield Prediction', desc: 'AI models trained on Algerian grain data forecast your harvest up to 6 weeks in advance.' },
-      { icon: '🛰️', title: 'Satellite Integration', desc: 'NDVI satellite data overlaid with ground sensors for complete field health visibility.' },
+      { icon: '', title: 'Soil Temperature Mapping', desc: 'Monitor field-wide temperature gradients to optimize planting windows and germination rates.' },
+      { icon: '', title: 'Precision Irrigation', desc: 'Cut water usage by 40% with zone-based smart irrigation triggered by real sensor readings.' },
+      { icon: '', title: 'Yield Prediction', desc: 'AI models trained on Algerian grain data forecast your harvest up to 6 weeks in advance.' },
+      { icon: '', title: 'Satellite Integration', desc: 'NDVI satellite data overlaid with ground sensors for complete field health visibility.' },
     ],
   },
   'Orchards & Arboriculture': {
-    badge: '🌳 Orchards',
+    badge: ' Orchards',
     title: 'Smart Monitoring for Olive & Fruit Trees',
     desc: 'From olive groves in Tizi Ouzou to citrus orchards in Mitidja, our sensors track tree health, canopy humidity, and root zone moisture to maximize fruit quality and reduce disease risk.',
     img: 'https://images.unsplash.com/photo-1609763951640-c0d7bd98b257?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG9saXZlJTIwdHJlZXN8ZW58MHx8MHx8fDA%3D',
     features: [
-      { icon: '🌿', title: 'Canopy Microclimate', desc: 'Sensors measure temperature and humidity inside the tree canopy for precise disease prevention.' },
-      { icon: '🪲', title: 'Pest Early Warning', desc: 'CropCam AI detects common olive fly and aphid infestations before they spread.' },
-      { icon: '💦', title: 'Root Zone Sensors', desc: 'Deep soil probes track moisture at root level for efficient drip irrigation scheduling.' },
-      { icon: '📅', title: 'Harvest Planning', desc: 'Track fruit maturity indicators and plan harvest windows to peak quality.' },
+      { icon: '', title: 'Canopy Microclimate', desc: 'Sensors measure temperature and humidity inside the tree canopy for precise disease prevention.' },
+      { icon: '', title: 'Pest Early Warning', desc: 'CropCam AI detects common olive fly and aphid infestations before they spread.' },
+      { icon: '', title: 'Root Zone Sensors', desc: 'Deep soil probes track moisture at root level for efficient drip irrigation scheduling.' },
+      { icon: '', title: 'Harvest Planning', desc: 'Track fruit maturity indicators and plan harvest windows to peak quality.' },
     ],
   },
   'Irrigated Vegetables': {
-    badge: '🥦 Vegetables',
+    badge: ' Vegetables',
     title: 'Data-Driven Vegetable Farming',
     desc: 'Intensive vegetable production demands precision. Our multi-zone sensor networks monitor each plot individually — tracking soil EC, moisture, and microclimate for tomatoes, peppers, potatoes, and more.',
     img: 'https://images.unsplash.com/photo-1515150144380-bca9f1650ed9?w=800&q=80',
     features: [
-      { icon: '⚗️', title: 'Soil EC Monitoring', desc: 'Track electrical conductivity to optimize fertilizer application and prevent salt buildup.' },
-      { icon: '🌱', title: 'Multi-Zone Control', desc: 'Manage up to 32 independent irrigation zones from a single dashboard.' },
-      { icon: '🧪', title: 'Fertigation Automation', desc: 'Automated fertilizer injection based on real-time plant nutrient demand.' },
-      { icon: '📱', title: 'Mobile Alerts', desc: 'Instant alerts on your phone if any sensor goes out of optimal range.' },
+      { icon: '', title: 'Soil EC Monitoring', desc: 'Track electrical conductivity to optimize fertilizer application and prevent salt buildup.' },
+      { icon: '', title: 'Multi-Zone Control', desc: 'Manage up to 32 independent irrigation zones from a single dashboard.' },
+      { icon: '', title: 'Fertigation Automation', desc: 'Automated fertilizer injection based on real-time plant nutrient demand.' },
+      { icon: '', title: 'Mobile Alerts', desc: 'Instant alerts on your phone if any sensor goes out of optimal range.' },
     ],
   },
   'Greenhouses': {
-    badge: '🏗️ Greenhouses',
+    badge: ' Greenhouses',
     title: 'Full Climate Control for Greenhouses',
     desc: 'Turn your greenhouse into a perfectly controlled environment. AgriSense integrates with ventilation, heating, shading, and irrigation systems to maintain ideal growing conditions automatically.',
     img: 'https://about.oceanstatejoblot.com/wp-content/uploads/2024/02/SF_HowDoGreenhousesWork_Hero.webp',
     features: [
-      { icon: '🌬️', title: 'Climate Automation', desc: 'Automatically open vents, run fans, or activate heaters based on real-time readings.' },
-      { icon: '☀️', title: 'Light Management', desc: 'PAR sensors track photosynthetically active radiation and control shade systems.' },
-      { icon: '💨', title: 'CO₂ Monitoring', desc: 'Maintain optimal CO₂ levels to maximize photosynthesis and growth rates.' },
-      { icon: '📈', title: 'Growth Analytics', desc: 'Track plant growth KPIs over time and compare seasonal performance.' },
+      { icon: '', title: 'Climate Automation', desc: 'Automatically open vents, run fans, or activate heaters based on real-time readings.' },
+      { icon: '', title: 'Light Management', desc: 'PAR sensors track photosynthetically active radiation and control shade systems.' },
+      { icon: '', title: 'CO₂ Monitoring', desc: 'Maintain optimal CO₂ levels to maximize photosynthesis and growth rates.' },
+      { icon: '', title: 'Growth Analytics', desc: 'Track plant growth KPIs over time and compare seasonal performance.' },
     ],
   },
 }
