@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-
 import hp from '../assets/hp.jpg'
 
 const styles = `
@@ -8,10 +7,10 @@ const styles = `
   body { font-family: 'Manrope', sans-serif; }
 
   .products-hero {
-    position: relative; padding: 140px 20px 80px; color: white; text-align: center;
-    
+    position: relative; padding: 140px 20px 80px; color: white; text-align: center; 
     background-size: cover; background-position: center;
   }
+
   .products-hero::before {
     content: ""; position: absolute; inset: 0;
     background: linear-gradient(160deg, rgba(0,60,20,0.7) 0%, rgba(5,100,40,0.5) 100%);
