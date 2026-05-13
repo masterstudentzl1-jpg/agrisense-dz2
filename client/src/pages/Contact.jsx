@@ -240,7 +240,7 @@ export default function Contact() {
             <p>We're based in Algiers and serve farms across all 58 wilayas. Our team speaks Arabic, French, and English.</p>
             {[
               { icon: '⚲', label: 'Address', value: 'Incubateur Bouira UMAO', sub: 'Bouira, Algérie' },
-              { icon: '🕻', label: 'Phone', value: '+213 0781092285', sub: 'Mon–Sat, 8h–18h' },
+              { icon: '✆', label: 'Phone', value: '+213 0781092285', sub: 'Mon–Sat, 8h–18h' },
               { icon: '@', label: 'Email', value: 'masterstudentzl1@gmail.com', sub: 'We reply within 24h' },
               { icon: '⏲', label: 'Hours', value: 'Monday – Saturday', sub: '8:00 – 18:00 ' },
             ].map(item => (

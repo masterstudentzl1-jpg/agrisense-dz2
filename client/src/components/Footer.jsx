@@ -137,7 +137,7 @@ export default function Footer() {
             </div>
 
             <div className="contact-item">
-              <span className="contact-icon">🕻</span>
+              <span className="contact-icon">✆</span>
               <span>+213 0781092285</span>
             </div>
 
