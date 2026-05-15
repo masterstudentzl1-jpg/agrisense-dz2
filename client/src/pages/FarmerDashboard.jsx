@@ -11,20 +11,17 @@ const Icon = ({ d, size = 16, stroke = 'currentColor', fill = 'none', strokeWidt
 )
 
 const Icons = {
-  // Nav
   dashboard:   'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
   fields:      'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7',
   sensors:     'M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0',
   analytics:   ['M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'],
   alerts:      'M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9',
   settings:    ['M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z', 'M15 12a3 3 0 11-6 0 3 3 0 016 0z'],
-  // KPI
   sensor_kpi:  ['M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0'],
   moisture:    ['M12 2.69l5.66 5.66a8 8 0 11-11.31 0z'],
   temp:        ['M14.5 10V5.5a2.5 2.5 0 00-5 0V10', 'M9 10a5 5 0 105 0'],
   warning:     'M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z',
   check:       'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
-  // Topbar
   search:      'M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803a7.5 7.5 0 0010.607 0z',
   refresh:     'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15',
   bell:        'M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0',
@@ -60,20 +57,20 @@ const S = `
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Manrope',sans-serif;overflow-x:hidden}
 .db{display:flex;min-height:100vh;background:#f4f6f8;font-family:'Manrope',sans-serif;position:relative}
-.sb{width:300px;background:#0d2818;display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:200;transition:transform 0.3s ease;overflow-y:auto;overflow-x:hidden;}
-.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:199;}
-.db-main{margin-left:300px;flex:1;display:flex;flex-direction:column;min-height:100vh;transition:margin-left 0.3s ease;}
-.topbar{height:64px;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;position:sticky;top:0;z-index:100;gap:1rem;}
-.tb-hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;border-radius:8px;color:#6b7280;font-size:20px;flex-shrink:0;transition:background 0.15s;}
+.sb{width:280px;background:#0d2818;display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:200;transition:transform 0.3s ease;overflow-y:auto;overflow-x:hidden;}
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:199;}
+.db-main{margin-left:280px;flex:1;display:flex;flex-direction:column;min-height:100vh;transition:margin-left 0.3s ease;}
+.topbar{height:60px;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;position:sticky;top:0;z-index:100;gap:0.75rem;}
+.tb-hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;border-radius:8px;color:#6b7280;flex-shrink:0;transition:background 0.15s;}
 .tb-hamburger:hover{background:#f3f4f6}
-.tb-breadcrumb{display:flex;align-items:center;gap:6px;font-size:0.88rem;color:#9ca3af;font-weight:500;flex-shrink:0;}
-.tb-breadcrumb .tb-brand{color:#374151;font-weight:600}
-.tb-breadcrumb .tb-sep{color:#d1d5db}
-.tb-breadcrumb .tb-page{color:#0d1f0f;font-weight:800;font-size:0.95rem}
+.tb-breadcrumb{display:flex;align-items:center;gap:6px;font-size:0.88rem;color:#9ca3af;font-weight:500;flex-shrink:0;min-width:0;}
+.tb-breadcrumb .tb-brand{color:#374151;font-weight:600;white-space:nowrap}
+.tb-breadcrumb .tb-sep{color:#d1d5db;flex-shrink:0}
+.tb-breadcrumb .tb-page{color:#0d1f0f;font-weight:800;font-size:0.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tb-search{flex:1;max-width:360px;display:flex;align-items:center;gap:8px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:50px;padding:0.45rem 1rem;}
 .tb-search input{border:none;outline:none;background:none;font-size:0.85rem;font-family:'Manrope',sans-serif;color:#374151;width:100%;}
 .tb-search input::placeholder{color:#9ca3af}
-.tb-actions{display:flex;align-items:center;gap:0.6rem;flex-shrink:0}
+.tb-actions{display:flex;align-items:center;gap:0.5rem;flex-shrink:0}
 .tb-time{font-size:0.82rem;font-weight:700;color:#374151;white-space:nowrap}
 .tb-icon-btn{width:36px;height:36px;border-radius:50%;border:1px solid #e5e7eb;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative;transition:background 0.15s;flex-shrink:0;color:#6b7280;}
 .tb-icon-btn:hover{background:#f9fafb}
@@ -100,7 +97,7 @@ body{font-family:'Manrope',sans-serif;overflow-x:hidden}
 .sb-brand-text .sb-name{font-size:1rem;font-weight:800;color:#fff}
 .sb-brand-text .sb-name span{color:#4ade80}
 .sb-brand-text .sb-sub{font-size:0.65rem;color:#4ade80;font-weight:600;text-transform:uppercase;letter-spacing:0.08em}
-.sb-close-btn{background:rgba(255,255,255,0.08);border:none;cursor:pointer;width:28px;height:28px;border-radius:8px;display:none;align-items:center;justify-content:center;color:#9dc9ad;transition:background 0.15s;}
+.sb-close-btn{background:rgba(255,255,255,0.08);border:none;cursor:pointer;width:32px;height:32px;border-radius:8px;display:none;align-items:center;justify-content:center;color:#9dc9ad;transition:background 0.15s;flex-shrink:0;}
 .sb-close-btn:hover{background:rgba(255,255,255,0.15)}
 .sb-system{margin:0.75rem 1.25rem 1rem;background:rgba(34,197,94,0.15);border:1px solid rgba(74,222,128,0.25);border-radius:12px;padding:0.75rem 1rem;display:flex;align-items:center;gap:10px;}
 .sb-sys-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,0.5);flex-shrink:0}
@@ -218,11 +215,11 @@ body{font-family:'Manrope',sans-serif;overflow-x:hidden}
 .field-card-accent.amber{background:#f59e0b}
 .field-card-body{padding:1.25rem}
 .field-card-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0.75rem}
-.field-card-icon-wrap{width:44px;height:44px;border-radius:12px;background:#f0fdf4;display:flex;align-items:center;justify-content:center;color:#16a34a}
-.field-card-meta{flex:1;margin-left:10px}
+.field-card-icon-wrap{width:44px;height:44px;border-radius:12px;background:#f0fdf4;display:flex;align-items:center;justify-content:center;color:#16a34a;flex-shrink:0}
+.field-card-meta{flex:1;margin-left:10px;min-width:0}
 .field-name{font-size:1rem;font-weight:700;color:#0d1f0f}
 .field-loc{font-size:0.72rem;color:#9ca3af;display:flex;align-items:center;gap:3px;margin-top:1px}
-.field-more{background:none;border:none;cursor:pointer;color:#9ca3af;display:flex;align-items:center;padding:0}
+.field-more{background:none;border:none;cursor:pointer;color:#9ca3af;display:flex;align-items:center;padding:0;flex-shrink:0}
 .field-tags{display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap}
 .field-tag{font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:50px;border:1.5px solid}
 .field-tag.healthy{background:#f0fdf4;color:#16a34a;border-color:#bbf7d0}
@@ -259,7 +256,7 @@ body{font-family:'Manrope',sans-serif;overflow-x:hidden}
 .status-card.offline-card .status-card-num{color:#6b7280}
 .status-card-label{font-size:0.78rem;font-weight:600;color:#6b7280}
 .search-filter-row{display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:0.75rem 1rem;flex-wrap:wrap}
-.search-input-wrap{flex:1;min-width:160px;display:flex;align-items:center;gap:8px}
+.search-input-wrap{flex:1;min-width:140px;display:flex;align-items:center;gap:8px}
 .search-input-wrap input{border:none;outline:none;font-size:0.88rem;font-family:'Manrope',sans-serif;color:#374151;background:none;width:100%}
 .search-input-wrap input::placeholder{color:#9ca3af}
 .filter-divider{width:1px;height:24px;background:#e5e7eb}
@@ -339,10 +336,10 @@ body{font-family:'Manrope',sans-serif;overflow-x:hidden}
 .btn-save{padding:10px 24px;border:none;border-radius:10px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:0.88rem;font-weight:700;cursor:pointer;font-family:'Manrope',sans-serif;margin-top:1.25rem;box-shadow:0 4px 14px rgba(34,197,94,0.3)}
 .save-success{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:8px 14px;font-size:0.82rem;color:#16a34a;font-weight:600;margin-top:0.75rem;display:inline-block}
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:600;display:flex;align-items:center;justify-content:center;padding:1rem;}
-.modal-box{background:#fff;border-radius:20px;width:100%;max-width:480px;padding:1.75rem;box-shadow:0 20px 50px rgba(0,0,0,0.25);animation:modalIn 0.25s ease}
+.modal-box{background:#fff;border-radius:20px;width:100%;max-width:480px;padding:1.75rem;box-shadow:0 20px 50px rgba(0,0,0,0.25);animation:modalIn 0.25s ease;max-height:90vh;overflow-y:auto;}
 @keyframes modalIn{from{opacity:0;transform:scale(0.95) translateY(16px)}to{opacity:1;transform:none}}
 .modal-title{font-size:1.1rem;font-weight:800;color:#0d1f0f;margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between}
-.modal-close{background:none;border:1px solid #e5e7eb;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:#6b7280}
+.modal-close{background:none;border:1px solid #e5e7eb;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:#6b7280;flex-shrink:0}
 .modal-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem}
 .modal-field label{display:block;font-size:0.75rem;font-weight:700;color:#374151;margin-bottom:0.3rem}
 .modal-field input,.modal-field select{width:100%;padding:0.65rem 0.85rem;border:1.5px solid #e5e7eb;border-radius:9px;font-size:0.85rem;font-family:'Manrope',sans-serif;background:#fafafa;outline:none}
@@ -350,16 +347,106 @@ body{font-family:'Manrope',sans-serif;overflow-x:hidden}
 .modal-actions{display:flex;gap:0.6rem;margin-top:1rem}
 .btn-modal-cancel{flex:1;padding:0.8rem;border:1.5px solid #e5e7eb;border-radius:10px;background:#fff;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:'Manrope',sans-serif}
 .btn-modal-save{flex:2;padding:0.8rem;border:none;border-radius:10px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:0.88rem;font-weight:700;cursor:pointer;font-family:'Manrope',sans-serif}
-.sensor-detail-modal{background:#fff;border-radius:20px;width:100%;max-width:420px;padding:1.75rem;box-shadow:0 20px 50px rgba(0,0,0,0.25);animation:modalIn 0.25s ease}
+.sensor-detail-modal{background:#fff;border-radius:20px;width:100%;max-width:420px;padding:1.75rem;box-shadow:0 20px 50px rgba(0,0,0,0.25);animation:modalIn 0.25s ease;max-height:90vh;overflow-y:auto;}
 .db-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:#0d1f0f;color:#4ade80;padding:0.75rem 1.5rem;border-radius:50px;font-size:0.85rem;font-weight:700;z-index:700;box-shadow:0 8px 24px rgba(0,0,0,0.3);animation:toastIn 0.3s ease;white-space:nowrap}
 @keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%)}}
 .no-results{text-align:center;padding:2.5rem;color:#9ca3af;font-size:0.9rem}
-@media(max-width:900px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.fields-grid{grid-template-columns:1fr}.sensors-cards-grid{grid-template-columns:1fr}.analytics-kpi-grid{grid-template-columns:1fr}.settings-layout{grid-template-columns:1fr}.settings-form-grid{grid-template-columns:1fr}.alert-expand-grid{grid-template-columns:1fr}}
-@media(max-width:768px){.sb{transform:translateX(-100%);box-shadow:4px 0 30px rgba(0,0,0,0.2);z-index:300}.sb.mobile-open{transform:translateX(0)}.sb-overlay{display:block}.sb-overlay.hidden{display:none}.sb-close-btn{display:flex!important}.db-main{margin-left:0!important}.tb-hamburger{display:flex}.tb-search{display:none}.db-content{padding:1rem}.topbar{padding:0 1rem}.kpi-grid{grid-template-columns:1fr;gap:0.75rem}.fields-stats{grid-template-columns:repeat(3,1fr)}.sensors-status-grid{grid-template-columns:repeat(3,1fr)}.chart-card{padding:1rem}.fields-grid{grid-template-columns:1fr}.sensors-cards-grid{grid-template-columns:1fr}.settings-layout{grid-template-columns:1fr}.settings-form-grid{grid-template-columns:1fr}.data-table th,.data-table td{padding:0.5rem;font-size:0.78rem}.modal-form-grid{grid-template-columns:1fr}}
-@media(max-width:480px){.sensors-status-grid{grid-template-columns:1fr}.kpi-value{font-size:1.6rem}.alert-expand-grid{grid-template-columns:1fr}}
+
+/* ─── TABLET ─────────────────────────────────────────────────────────────── */
+@media(max-width:900px){
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .fields-grid{grid-template-columns:1fr}
+  .sensors-cards-grid{grid-template-columns:1fr}
+  .analytics-kpi-grid{grid-template-columns:1fr}
+  .settings-layout{grid-template-columns:1fr}
+  .settings-form-grid{grid-template-columns:1fr}
+  .alert-expand-grid{grid-template-columns:1fr}
+}
+
+/* ─── MOBILE ─────────────────────────────────────────────────────────────── */
+@media(max-width:768px){
+  /* Sidebar */
+  .sb{transform:translateX(-100%);width:280px;box-shadow:4px 0 30px rgba(0,0,0,0.2);z-index:300}
+  .sb.mobile-open{transform:translateX(0)}
+  .sb-overlay{display:block}
+  .sb-overlay.hidden{display:none}
+  .sb-close-btn{display:flex!important}
+  /* Main layout */
+  .db-main{margin-left:0!important}
+  .tb-hamburger{display:flex}
+  .tb-search{display:none}
+  .tb-time{display:none}
+  .tb-live{display:none}
+  .tb-user-name{display:none}
+  /* Topbar slim */
+  .topbar{padding:0 0.875rem;height:56px}
+  /* Content */
+  .db-content{padding:0.875rem}
+  /* Page header */
+  .page-header h1{font-size:1.2rem}
+  .page-header-row{flex-direction:column;gap:0.5rem}
+  .live-badge{align-self:flex-start}
+  /* KPI: 2 cols on mobile */
+  .kpi-grid{grid-template-columns:repeat(2,1fr);gap:0.625rem;margin-bottom:1rem}
+  .kpi-card{padding:1rem}
+  .kpi-value{font-size:1.5rem}
+  .kpi-icon-wrap{width:36px;height:36px;border-radius:10px}
+  .kpi-top{margin-bottom:0.5rem}
+  /* Charts */
+  .chart-card{padding:1rem}
+  /* Sensors status: 3 cols kept but compact */
+  .sensors-status-grid{grid-template-columns:repeat(3,1fr);gap:0.625rem}
+  .status-card{padding:0.75rem 0.5rem;flex-direction:column;text-align:center;gap:4px}
+  .status-card-num{font-size:1.4rem}
+  .status-card-label{font-size:0.68rem}
+  /* Fields grid: 1 col */
+  .fields-grid{grid-template-columns:1fr}
+  /* Sensor cards: 1 col */
+  .sensors-cards-grid{grid-template-columns:1fr}
+  /* Analytics KPI */
+  .analytics-kpi-grid{grid-template-columns:repeat(2,1fr)}
+  /* Settings */
+  .settings-layout{grid-template-columns:1fr}
+  .settings-form-grid{grid-template-columns:1fr}
+  /* Alert expand grid */
+  .alert-expand-grid{grid-template-columns:1fr}
+  /* Table */
+  .data-table th,.data-table td{padding:0.5rem;font-size:0.75rem}
+  /* Modals full-width */
+  .modal-box,.sensor-detail-modal{max-width:100%;border-radius:16px 16px 0 0;position:fixed;bottom:0;left:0;right:0;padding:1.25rem;animation:sheetIn 0.3s ease}
+  @keyframes sheetIn{from{transform:translateY(100%)}to{transform:none}}
+  .modal-overlay{align-items:flex-end;padding:0}
+  .modal-form-grid{grid-template-columns:1fr}
+  /* Filter row compact */
+  .search-filter-row{padding:0.6rem 0.75rem;gap:0.5rem}
+  .filter-divider{display:none}
+  .filter-btns{width:100%}
+  /* Alert items */
+  .alert-item{padding:0.875rem}
+  .alert-badge{display:none}
+  /* Toast bottom */
+  .db-toast{bottom:1rem;font-size:0.78rem;padding:0.6rem 1.1rem;max-width:90vw;white-space:normal;text-align:center}
+  /* Add field header */
+  .fields-add-row{flex-direction:column;align-items:flex-start}
+}
+
+/* ─── SMALL PHONE ─────────────────────────────────────────────────────────── */
+@media(max-width:480px){
+  .kpi-grid{grid-template-columns:1fr}
+  .sensors-status-grid{grid-template-columns:repeat(3,1fr)}
+  .kpi-value{font-size:1.4rem}
+  .analytics-kpi-grid{grid-template-columns:1fr}
+  .alert-expand-grid{grid-template-columns:1fr}
+  .sensor-card-val{font-size:1.4rem}
+  .time-btns{gap:0.25rem}
+  .time-btn{padding:5px 10px;font-size:0.7rem}
+  .field-readings{grid-template-columns:repeat(3,1fr);gap:0.35rem}
+  .field-reading{padding:0.45rem}
+  .field-reading-val{font-size:0.82rem}
+}
 `
 
-// ─── CHART COMPONENTS (unchanged) ────────────────────────────────────────────
+// ─── CHART COMPONENTS ────────────────────────────────────────────────────────
 function LineChart({ datasets, labels, height = 160, yMin, yMax }) {
   const W=700,H=height,PL=40,PR=10,PT=10,PB=30
   const cw=W-PL-PR,ch=H-PT-PB
@@ -424,7 +511,6 @@ const ALL_FIELDS=[
   {name:'Field Delta',loc:'Tiaret',accent:'amber',status:'healthy',crop:'Olive',area:'30 ha',moisture:{v:'55%',c:'blue'},temp:{v:'24°C',c:'amber'},sensors:{v:'6',c:'green'},health:88},
 ]
 
-// ─── NAV CONFIG ───────────────────────────────────────────────────────────────
 const navSectionsConfig = [
   {label:'Overview',items:[{key:'overview',iconName:'dashboard',label:'Dashboard'},{key:'fields',iconName:'fields',label:'My Fields'}]},
   {label:'Monitoring',items:[{key:'sensors',iconName:'sensors',label:'Sensors'},{key:'analytics',iconName:'analytics',label:'Analytics'}]},
@@ -598,9 +684,9 @@ export default function FarmerDashboard() {
 
         <div className="db-main">
           <div className="topbar">
-            <div style={{display:'flex',alignItems:'center',gap:'10px',minWidth:0}}>
+            <div style={{display:'flex',alignItems:'center',gap:'10px',minWidth:0,flex:1}}>
               <button className="tb-hamburger" onClick={()=>setSidebarOpen(o=>!o)}><Ic name="menu" size={20}/></button>
-              <div className="tb-breadcrumb">
+              <div className="tb-breadcrumb" style={{minWidth:0}}>
                 <span className="tb-brand">AgriSense DZ</span>
                 <span className="tb-sep">›</span>
                 <span className="tb-page">{currentPageLabel}</span>
@@ -622,7 +708,7 @@ export default function FarmerDashboard() {
               </button>
               {tab==='overview'&&(
                 <div className="tb-live">
-                  <span className="tb-live-dot"/>Live · {refreshing?'refreshing…':`updated ${lastRefreshed.toLocaleTimeString()}`}
+                  <span className="tb-live-dot"/>Live
                 </div>
               )}
               <div style={{position:'relative'}} ref={dropRef}>
@@ -679,7 +765,7 @@ export default function FarmerDashboard() {
               </div>
               <div className="chart-card">
                 <div className="chart-head"><div className="chart-head-left"><h3>Soil Moisture — 7 Days</h3><p>By field region (%)</p></div><span className="chart-icon"><Ic name="moisture" size={20}/></span></div>
-                <LineChart datasets={[{data:moistureData.blida,color:'#16a34a'},{data:moistureData.setif,color:'#06b6d4'},{data:moistureData.tiaret,color:'#8b5cf6'}]} labels={DAYS} height={180} yMin={20} yMax={65}/>
+                <LineChart datasets={[{data:moistureData.blida,color:'#16a34a'},{data:moistureData.setif,color:'#06b6d4'},{data:moistureData.tiaret,color:'#8b5cf6'}]} labels={DAYS} height={160} yMin={20} yMax={65}/>
                 <div className="chart-legend">{[{c:'#16a34a',l:'Blida'},{c:'#06b6d4',l:'Sétif'},{c:'#8b5cf6',l:'Tiaret'}].map(d=>(<div key={d.l} className="legend-item"><span className="legend-dot" style={{background:d.c}}/>{d.l}</div>))}</div>
               </div>
               <div className="alerts-section">
@@ -732,7 +818,7 @@ export default function FarmerDashboard() {
             {/* MY FIELDS */}
             {tab==='fields'&&(<>
               <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'1rem',flexWrap:'wrap',gap:'0.75rem'}}>
-                <div><h1 style={{fontSize:'1.5rem',fontWeight:800,color:'#0d1f0f'}}>My Fields</h1><p style={{fontSize:'0.85rem',color:'#6b7280'}}>{fields.length} fields · {fields.reduce((s,f)=>s+parseInt(f.area)||0,0)} ha monitored</p></div>
+                <div><h1 style={{fontSize:'1.25rem',fontWeight:800,color:'#0d1f0f'}}>My Fields</h1><p style={{fontSize:'0.82rem',color:'#6b7280'}}>{fields.length} fields · {fields.reduce((s,f)=>s+parseInt(f.area)||0,0)} ha monitored</p></div>
                 <button className="btn-add-field" onClick={()=>setShowAddField(true)}><Ic name="plus" size={14}/>Add Field</button>
               </div>
               <div className="search-filter-row" style={{marginBottom:'1rem'}}>
@@ -742,10 +828,10 @@ export default function FarmerDashboard() {
                   {fieldSearch&&<button onClick={()=>setFieldSearch('')} style={{background:'none',border:'none',cursor:'pointer',color:'#9ca3af',display:'flex',alignItems:'center'}}><Ic name="close" size={14}/></button>}
                 </div>
               </div>
-              <div style={{background:'#fff',borderRadius:'16px',border:'1px solid #e5e7eb',padding:'1.5rem',marginBottom:'1.5rem',display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'1rem'}}>
-                <div><div style={{fontSize:'1.6rem',fontWeight:800,color:'#16a34a'}}>{fields.reduce((s,f)=>s+parseInt(f.area)||0,0)} ha</div><div style={{fontSize:'0.78rem',color:'#9ca3af'}}>Total Area</div></div>
-                <div style={{borderLeft:'1px solid #e5e7eb',paddingLeft:'1.5rem'}}><div style={{fontSize:'1.6rem',fontWeight:800,color:'#2563eb'}}>{ALL_SENSORS.length}</div><div style={{fontSize:'0.78rem',color:'#9ca3af'}}>Total Sensors</div></div>
-                <div style={{borderLeft:'1px solid #e5e7eb',paddingLeft:'1.5rem'}}><div style={{fontSize:'1.6rem',fontWeight:800,color:'#7c3aed'}}>{Math.round(fields.reduce((s,f)=>s+f.health,0)/Math.max(fields.length,1))}%</div><div style={{fontSize:'0.78rem',color:'#9ca3af'}}>Avg. Health</div></div>
+              <div style={{background:'#fff',borderRadius:'16px',border:'1px solid #e5e7eb',padding:'1.25rem',marginBottom:'1.25rem',display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'0.75rem'}}>
+                <div><div style={{fontSize:'1.4rem',fontWeight:800,color:'#16a34a'}}>{fields.reduce((s,f)=>s+parseInt(f.area)||0,0)} ha</div><div style={{fontSize:'0.72rem',color:'#9ca3af'}}>Total Area</div></div>
+                <div style={{borderLeft:'1px solid #e5e7eb',paddingLeft:'1rem'}}><div style={{fontSize:'1.4rem',fontWeight:800,color:'#2563eb'}}>{ALL_SENSORS.length}</div><div style={{fontSize:'0.72rem',color:'#9ca3af'}}>Total Sensors</div></div>
+                <div style={{borderLeft:'1px solid #e5e7eb',paddingLeft:'1rem'}}><div style={{fontSize:'1.4rem',fontWeight:800,color:'#7c3aed'}}>{Math.round(fields.reduce((s,f)=>s+f.health,0)/Math.max(fields.length,1))}%</div><div style={{fontSize:'0.72rem',color:'#9ca3af'}}>Avg. Health</div></div>
               </div>
               {filteredFields.length===0?<div className="no-results">No fields match "{fieldSearch}"</div>:(
               <div className="fields-grid">
@@ -754,7 +840,7 @@ export default function FarmerDashboard() {
                     <div className={`field-card-accent ${f.accent}`}/>
                     <div className="field-card-body">
                       <div className="field-card-head">
-                        <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
+                        <div style={{display:'flex',alignItems:'center',gap:'10px',minWidth:0}}>
                           <div className="field-card-icon-wrap"><Ic name="fields" size={22}/></div>
                           <div className="field-card-meta"><div className="field-name">{f.name}</div><div className="field-loc"><Ic name="mapPin" size={10}/> {f.loc}</div></div>
                         </div>
@@ -787,7 +873,7 @@ export default function FarmerDashboard() {
                   {cls:'warning-card',iconName:'warning',num:ALL_SENSORS.filter(s=>s.status==='warning').length,label:'Warning'},
                   {cls:'offline-card',iconName:'sensor_kpi',num:ALL_SENSORS.filter(s=>s.status==='offline').length,label:'Offline'}].map((s,i)=>(
                   <div key={i} className={`status-card ${s.cls}`} style={{cursor:'pointer'}} onClick={()=>setSensorFilter(s.label)}>
-                    <span className="status-card-icon"><Ic name={s.iconName} size={22}/></span>
+                    <span className="status-card-icon"><Ic name={s.iconName} size={20}/></span>
                     <div><div className="status-card-num">{s.num}</div><div className="status-card-label">{s.label}</div></div>
                   </div>
                 ))}
@@ -832,10 +918,10 @@ export default function FarmerDashboard() {
             {/* ANALYTICS */}
             {tab==='analytics'&&(<>
               <div className="analytics-header">
-                <div><h1 style={{fontSize:'1.5rem',fontWeight:800,color:'#0d1f0f'}}>Analytics</h1><p style={{fontSize:'0.85rem',color:'#6b7280'}}>Deep insights across all your fields and sensors</p></div>
+                <div><h1 style={{fontSize:'1.25rem',fontWeight:800,color:'#0d1f0f'}}>Analytics</h1><p style={{fontSize:'0.82rem',color:'#6b7280'}}>Deep insights across all your fields and sensors</p></div>
                 <div style={{display:'flex',gap:'0.5rem',alignItems:'center',flexWrap:'wrap'}}>
                   <div className="time-btns">{['24 Hours','7 Days','30 Days','3 Months'].map(t=>(<button key={t} className={`time-btn${analyticsTime===t?' active':''}`} onClick={()=>setAnalyticsTime(t)}>{t}</button>))}</div>
-                  <button className="export-btn" onClick={handleExport}><Ic name="download" size={13}/>Export CSV</button>
+                  <button className="export-btn" onClick={handleExport}><Ic name="download" size={13}/>Export</button>
                 </div>
               </div>
               <div className="analytics-kpi-grid">
@@ -863,9 +949,9 @@ export default function FarmerDashboard() {
               </div>
               <div className="chart-card">
                 <div className="chart-head"><div className="chart-head-left"><h3>Data Log — {analyticsTime}</h3></div><span style={{fontSize:'0.78rem',color:'#9ca3af'}}>{logData.length} records</span></div>
-                <div style={{overflowX:'auto'}}>
-                  <table className="data-table" style={{width:'100%',minWidth:'400px'}}>
-                    <thead><tr><th>TIME</th><th>MOISTURE (%)</th><th>TEMP (°C)</th><th>HUMIDITY (%)</th><th style={{textAlign:'right'}}>RAINFALL (MM)</th></tr></thead>
+                <div style={{overflowX:'auto',WebkitOverflowScrolling:'touch'}}>
+                  <table className="data-table" style={{width:'100%',minWidth:'380px'}}>
+                    <thead><tr><th>TIME</th><th>MOIST (%)</th><th>TEMP (°C)</th><th>HUM (%)</th><th style={{textAlign:'right'}}>RAIN (MM)</th></tr></thead>
                     <tbody>{logData.map(r=>(<tr key={r.d}><td>{r.d}</td><td className="td-moisture">{r.m}</td><td className="td-temp">{r.t}</td><td>{r.h}</td><td style={{textAlign:'right'}} className={r.r>0?'td-rain':'td-zero'}>{r.r>0?r.r:0}</td></tr>))}</tbody>
                   </table>
                 </div>
