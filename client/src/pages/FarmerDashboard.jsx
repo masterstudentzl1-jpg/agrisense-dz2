@@ -128,6 +128,8 @@ body{font-family:'Manrope',sans-serif;overflow-x:hidden}
 .page-header-row{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
 .live-badge{display:flex;align-items:center;gap:6px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:50px;padding:6px 14px;font-size:0.75rem;font-weight:700;color:#16a34a;white-space:nowrap;flex-shrink:0}
 .live-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite}
+
+/* ─── KPI GRID (desktop) ─────────────────────────────────────────────────── */
 .kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:1.5rem}
 .kpi-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:1.5rem;position:relative;overflow:hidden;transition:box-shadow 0.2s}
 .kpi-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.07)}
@@ -148,6 +150,11 @@ body{font-family:'Manrope',sans-serif;overflow-x:hidden}
 .kpi-value{font-size:2rem;font-weight:800;color:#0d1f0f;line-height:1;margin-bottom:0.25rem}
 .kpi-label{font-size:0.82rem;font-weight:600;color:#374151;margin-bottom:2px}
 .kpi-sub{font-size:0.72rem;color:#9ca3af}
+
+/* ─── MOBILE KPI CARDS — screenshot style ─────────────────────────────────── */
+/* These classes are used only on mobile, applied via the .mobile-kpi-grid wrapper */
+.mobile-kpi-grid{display:none}
+
 .chart-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:1.5rem;margin-bottom:1.25rem}
 .chart-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem}
 .chart-head-left h3{font-size:1rem;font-weight:700;color:#0d1f0f}
@@ -371,6 +378,7 @@ body{font-family:'Manrope',sans-serif;overflow-x:hidden}
   .sb-overlay{display:block}
   .sb-overlay.hidden{display:none}
   .sb-close-btn{display:flex!important}
+
   /* Main layout */
   .db-main{margin-left:0!important}
   .tb-hamburger{display:flex}
@@ -378,63 +386,126 @@ body{font-family:'Manrope',sans-serif;overflow-x:hidden}
   .tb-time{display:none}
   .tb-live{display:none}
   .tb-user-name{display:none}
+
   /* Topbar slim */
   .topbar{padding:0 0.875rem;height:56px}
+
   /* Content */
   .db-content{padding:0.875rem}
+
   /* Page header */
   .page-header h1{font-size:1.2rem}
   .page-header-row{flex-direction:column;gap:0.5rem}
   .live-badge{align-self:flex-start}
-  /* KPI: 2 cols on mobile */
-  .kpi-grid{grid-template-columns:repeat(2,1fr);gap:0.625rem;margin-bottom:1rem}
-  .kpi-card{padding:1rem}
-  .kpi-value{font-size:1.5rem}
-  .kpi-icon-wrap{width:36px;height:36px;border-radius:10px}
-  .kpi-top{margin-bottom:0.5rem}
+
+  /* ── Screenshot-style KPI: hide desktop grid, show mobile cards ── */
+  .kpi-grid{display:none}
+  .mobile-kpi-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0.75rem;
+    margin-bottom:1rem;
+  }
+  .m-kpi-card{
+    border-radius:20px;
+    padding:1rem 1rem 0.875rem;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 2px 12px rgba(0,0,0,0.06);
+    border:1px solid transparent;
+    min-height:90px;
+  }
+  .m-kpi-card.card-temp{background:#fff8f0;border-color:#fed7aa}
+  .m-kpi-card.card-moisture{background:#f0f7ff;border-color:#bfdbfe}
+  .m-kpi-card.card-sensors{background:#f0fdf4;border-color:#bbf7d0}
+  .m-kpi-card.card-alerts{background:#fff5f5;border-color:#fecaca}
+  .m-kpi-icon{
+    width:44px;height:44px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .m-kpi-card.card-temp .m-kpi-icon{background:#fff;color:#f97316}
+  .m-kpi-card.card-moisture .m-kpi-icon{background:#fff;color:#3b82f6}
+  .m-kpi-card.card-sensors .m-kpi-icon{background:#fff;color:#22c55e}
+  .m-kpi-card.card-alerts .m-kpi-icon{background:#fff;color:#ef4444}
+  .m-kpi-body{flex:1;min-width:0}
+  .m-kpi-value{font-size:1.35rem;font-weight:800;line-height:1;margin-bottom:3px}
+  .m-kpi-card.card-temp .m-kpi-value{color:#ea580c}
+  .m-kpi-card.card-moisture .m-kpi-value{color:#2563eb}
+  .m-kpi-card.card-sensors .m-kpi-value{color:#16a34a}
+  .m-kpi-card.card-alerts .m-kpi-value{color:#dc2626}
+  .m-kpi-label{font-size:0.68rem;font-weight:600;color:#6b7280;line-height:1.3}
+  .m-kpi-trend{font-size:0.62rem;font-weight:700;margin-top:3px}
+  .m-kpi-trend.up{color:#16a34a}
+  .m-kpi-trend.down{color:#ef4444}
+
   /* Charts */
-  .chart-card{padding:1rem}
-  /* Sensors status: 3 cols kept but compact */
+  .chart-card{padding:1rem;border-radius:14px}
+  .chart-head-left h3{font-size:0.92rem}
+  .chart-head-left p{font-size:0.7rem}
+
+  /* Sensor status: 3 cols compact */
   .sensors-status-grid{grid-template-columns:repeat(3,1fr);gap:0.625rem}
   .status-card{padding:0.75rem 0.5rem;flex-direction:column;text-align:center;gap:4px}
   .status-card-num{font-size:1.4rem}
   .status-card-label{font-size:0.68rem}
+
   /* Fields grid: 1 col */
   .fields-grid{grid-template-columns:1fr}
+
   /* Sensor cards: 1 col */
   .sensors-cards-grid{grid-template-columns:1fr}
+
   /* Analytics KPI */
   .analytics-kpi-grid{grid-template-columns:repeat(2,1fr)}
+
   /* Settings */
   .settings-layout{grid-template-columns:1fr}
   .settings-form-grid{grid-template-columns:1fr}
+
   /* Alert expand grid */
   .alert-expand-grid{grid-template-columns:1fr}
+
   /* Table */
   .data-table th,.data-table td{padding:0.5rem;font-size:0.75rem}
-  /* Modals full-width */
-  .modal-box,.sensor-detail-modal{max-width:100%;border-radius:16px 16px 0 0;position:fixed;bottom:0;left:0;right:0;padding:1.25rem;animation:sheetIn 0.3s ease}
+
+  /* Modals — bottom sheet */
+  .modal-box,.sensor-detail-modal{
+    max-width:100%;border-radius:20px 20px 0 0;
+    position:fixed;bottom:0;left:0;right:0;
+    padding:1.25rem;
+    animation:sheetIn 0.3s ease
+  }
   @keyframes sheetIn{from{transform:translateY(100%)}to{transform:none}}
   .modal-overlay{align-items:flex-end;padding:0}
   .modal-form-grid{grid-template-columns:1fr}
+
   /* Filter row compact */
   .search-filter-row{padding:0.6rem 0.75rem;gap:0.5rem}
   .filter-divider{display:none}
   .filter-btns{width:100%}
+
   /* Alert items */
   .alert-item{padding:0.875rem}
   .alert-badge{display:none}
-  /* Toast bottom */
+
+  /* Toast */
   .db-toast{bottom:1rem;font-size:0.78rem;padding:0.6rem 1.1rem;max-width:90vw;white-space:normal;text-align:center}
-  /* Add field header */
-  .fields-add-row{flex-direction:column;align-items:flex-start}
+
+  /* Sensors section bottom on overview */
+  .sensors-section{border-radius:14px;padding:1rem}
+  .alerts-section .alert-item{border-radius:12px}
 }
 
 /* ─── SMALL PHONE ─────────────────────────────────────────────────────────── */
 @media(max-width:480px){
-  .kpi-grid{grid-template-columns:1fr}
+  .mobile-kpi-grid{grid-template-columns:1fr 1fr;gap:0.5rem}
+  .m-kpi-card{min-height:80px;padding:0.875rem 0.75rem}
+  .m-kpi-value{font-size:1.2rem}
+  .m-kpi-icon{width:38px;height:38px;border-radius:12px}
   .sensors-status-grid{grid-template-columns:repeat(3,1fr)}
-  .kpi-value{font-size:1.4rem}
   .analytics-kpi-grid{grid-template-columns:1fr}
   .alert-expand-grid{grid-template-columns:1fr}
   .sensor-card-val{font-size:1.4rem}
@@ -634,6 +705,14 @@ export default function FarmerDashboard() {
   const currentPageLabel=navSectionsConfig.flatMap(s=>s.items).find(i=>i.key===tab)?.label||'Dashboard'
   const criticalBadge=activeAlerts.filter(a=>a.type==='critical').length||undefined
 
+  // Mobile KPI data (same content as desktop, just restructured for mobile cards)
+  const mobileKpiCards = [
+    {cls:'card-temp',iconName:'temp',val:'31.4°C',label:'Avg. Temperature',trend:'↗ 2%',dir:'up'},
+    {cls:'card-moisture',iconName:'moisture',val:'43%',label:'Avg. Soil Moisture',trend:'↘ 3%',dir:'down'},
+    {cls:'card-sensors',iconName:'sensor_kpi',val:ALL_SENSORS.length,label:'Active Sensors',trend:'↗ 8%',dir:'up'},
+    {cls:'card-alerts',iconName:'warning',val:activeAlerts.filter(a=>a.type==='critical').length,label:'Active Alerts',trend:'↘ 1%',dir:'down'},
+  ]
+
   return(
     <>
       <style>{S}</style>
@@ -744,6 +823,8 @@ export default function FarmerDashboard() {
                 </div>
                 <div className="live-badge"><span className="live-dot"/>Live</div>
               </div>
+
+              {/* DESKTOP KPI GRID */}
               <div className="kpi-grid">
                 {[
                   {iconName:'sensor_kpi',iconClass:'blue',accent:'green',val:ALL_SENSORS.length,label:'Active Sensors',sub:`${ALL_SENSORS.filter(s=>s.status==='online').length} online · ${ALL_SENSORS.filter(s=>s.status==='offline').length} offline`,trend:'↗ 8%',dir:'up'},
@@ -763,6 +844,21 @@ export default function FarmerDashboard() {
                   </div>
                 ))}
               </div>
+
+              {/* MOBILE KPI GRID — screenshot style */}
+              <div className="mobile-kpi-grid">
+                {mobileKpiCards.map((k,i)=>(
+                  <div key={i} className={`m-kpi-card ${k.cls}`}>
+                    <div className="m-kpi-icon"><Ic name={k.iconName} size={22}/></div>
+                    <div className="m-kpi-body">
+                      <div className="m-kpi-value">{k.val}</div>
+                      <div className="m-kpi-label">{k.label}</div>
+                      <div className={`m-kpi-trend ${k.dir}`}>{k.trend}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
               <div className="chart-card">
                 <div className="chart-head"><div className="chart-head-left"><h3>Soil Moisture — 7 Days</h3><p>By field region (%)</p></div><span className="chart-icon"><Ic name="moisture" size={20}/></span></div>
                 <LineChart datasets={[{data:moistureData.blida,color:'#16a34a'},{data:moistureData.setif,color:'#06b6d4'},{data:moistureData.tiaret,color:'#8b5cf6'}]} labels={DAYS} height={160} yMin={20} yMax={65}/>
