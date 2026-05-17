@@ -110,7 +110,7 @@ const styles = `
 `
 
 const tabs = [
-  { label: 'Cereals & Grains', icon: '' },
+  { label: 'Cereals ', icon: '' },
   { label: 'Orchards & Arboriculture', icon: '' },
   { label: 'Irrigated Vegetables', icon: '' },
   { label: 'Greenhouses', icon: '' },
