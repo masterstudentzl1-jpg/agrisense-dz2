@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { db } from '../firebase'
+import { collection, addDoc } from 'firebase/firestore'
 
 // ─── SVG ICON SYSTEM ──────────────────────────────────────────────────────────
 const Icons = {
@@ -227,11 +229,26 @@ export default function Contact() {
   const [form, setForm] = useState({ fname: '', lname: '', email: '', phone: '', type: '', wilaya: '', message: '' })
 
   const handle = e => setForm({ ...form, [e.target.name]: e.target.value })
-  const submit = e => {
-    e.preventDefault()
+const submit = async e => {
+  e.preventDefault()
+  try {
+    await addDoc(collection(db, 'contacts'), {
+      firstName: form.fname,
+      lastName:  form.lname,
+      email:     form.email,
+      phone:     form.phone,
+      type:      form.type,
+      wilaya:    form.wilaya,
+      message:   form.message,
+      createdAt: new Date()
+    })
     setSent(true)
+    setForm({ fname: '', lname: '', email: '', phone: '', type: '', wilaya: '', message: '' })
     setTimeout(() => setSent(false), 4000)
+  } catch (err) {
+    console.error('Error sending message:', err)
   }
+}
 
   useEffect(() => {
     const els = document.querySelectorAll(".reveal")

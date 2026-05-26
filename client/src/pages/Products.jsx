@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import hp from '../assets/hp.jpg'
+import { db } from '../firebase'
+import { collection, getDocs } from 'firebase/firestore'
 
 // ─── SVG ICON SYSTEM ─────────────────────────────────────────────────────────
 const Icons = {
@@ -304,14 +306,7 @@ const styles = `
 
 const WILAYAS = ['Alger','Oran','Constantine','Annaba','Blida','Sétif','Biskra','Tizi Ouzou','Batna','Béjaïa','Médéa','Bouira','Tlemcen','Other']
 const categories = ['All', 'Sensors', 'Irrigation', 'Monitoring', 'Software']
-const products = [
-  { id:1, name:'AgroSense Pro',     category:'Sensors',    desc:'All-in-one soil moisture, temperature & pH sensor with LoRa connectivity.',       price:12900, badge:'bestseller', badgeLabel:'Best Seller', bg:'https://www.makerfabs.com/media/catalog/product/cache/5082619e83af502b1cf28572733576a0/a/g/agrosense_soil_monitor_lorawan_humiditytemperaturephec_-1.jpg' },
-  { id:2, name:'IrriBot Controller', category:'Irrigation', desc:'Smart irrigation valve controller with auto-scheduling and remote control.',       price:8500,  badge:'new',        badgeLabel:'New',         bg:'https://www.solarirrigations.com/uploads/4G-Smart-Irrigation-Controller-02-4.jpg' },
-  { id:3, name:'CropCam AI',         category:'Monitoring', desc:'Computer vision camera for real-time crop disease and pest detection.',            price:19900, badge:'premium',    badgeLabel:'Premium',     bg:'https://cdn.prod.website-files.com/665dad178b155b8948cea817/68c13f2f7f4dd84cd10f4f54_real-time-photos.webp' },
-  { id:4, name:'SolarHub Gateway',   category:'Sensors',    desc:'Solar-powered LoRa gateway covering up to 10km. No electricity needed.',          price:6200,  badge:'sale',       badgeLabel:'Sale',        bg:'https://ecdn6-nc.globalso.com/upload/p/911/image_product/2024-03/66062c2e3649e84279.jpg' },
-  { id:5, name:'WeatherNode',        category:'Monitoring', desc:'Compact weather station measuring wind, rain, UV and atmospheric pressure.',       price:9400,  badge:'new',        badgeLabel:'New',         bg:'https://images-na.ssl-images-amazon.com/images/I/71Mk5iJGjFL._AC_UL900_SR900,600_.jpg' },
-  { id:6, name:'Dashboard Pro',      category:'Software',   desc:'Full web & mobile dashboard with AI insights, alerts and data export.',            price:4900,  badge:'premium',    badgeLabel:'Premium',     bg:'https://media.finebi.com/strapi/mobile_dashboard_172861a5c4.jpg' },
-]
+
 
 const DELIVERY_FEE = 500
 const STEPS = ['Order Review', 'Delivery Info', 'Payment', 'Confirmation']
@@ -616,7 +611,24 @@ function CheckoutModal({ cart, onClose, onSuccess }) {
 
 export default function Products() {
   const [active, setActive] = useState('All')
-  const [cart, setCart] = useState([])
+const [cart, setCart] = useState([])
+const [products, setProducts] = useState([])
+const [loadingProducts, setLoadingProducts] = useState(true)
+
+useEffect(() => {
+  const fetchProducts = async () => {
+    try {
+      const snapshot = await getDocs(collection(db, 'products'))
+      const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+      setProducts(data)
+    } catch (err) {
+      console.error('Error loading products:', err)
+    } finally {
+      setLoadingProducts(false)
+    }
+  }
+  fetchProducts()
+}, [])
   const [basketOpen, setBasketOpen] = useState(false)
   const [checkoutOpen, setCheckoutOpen] = useState(false)
   const [toast, setToast] = useState('')
@@ -639,11 +651,17 @@ export default function Products() {
   const handleOrderSuccess = () => setCart([])
 
   useEffect(() => {
+  if (loadingProducts) return
+  const timer = setTimeout(() => {
     const els = document.querySelectorAll('.reveal')
-    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }) }, { threshold: 0.12 })
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
+    }, { threshold: 0.12 })
     els.forEach(el => obs.observe(el))
     return () => obs.disconnect()
-  }, [])
+  }, 100)
+  return () => clearTimeout(timer)
+}, [loadingProducts])
 
   return (
     <>
@@ -671,7 +689,11 @@ export default function Products() {
 
       <div className="products-main">
         <div className="products-grid">
-          {filtered.map((p, i) => (
+          {loadingProducts ? (
+            <p style={{ color: '#6b7280', fontSize: '0.9rem' }}>Loading products...</p>
+          ) : filtered.length === 0 ? (
+            <p style={{ color: '#6b7280', fontSize: '0.9rem' }}>No products found. Add products in Firebase Console.</p>
+          ) : filtered.map((p, i) => (
             <div key={p.id} className="product-card reveal" style={{ transitionDelay: `${i * 0.08}s` }}>
               <div className="card-img">
                 <img src={p.bg} alt={p.name} />

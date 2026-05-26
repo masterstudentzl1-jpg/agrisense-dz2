@@ -1,48 +1,102 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
+import { auth, db } from '../firebase'
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
+} from 'firebase/auth'
+import { doc, setDoc, getDoc } from 'firebase/firestore'
 
 const AuthContext = createContext()
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
-  // user shape: { id, firstName, lastName, email, role: 'farmer'|'supplier'|'technician', wilaya, token }
+  const [loading, setLoading] = useState(true)
 
+  // ── Auto-restore session on page refresh ──────────────────────────
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (firebaseUser) {
+        // Get extra info (role, wilaya, name) from Firestore
+        const docSnap = await getDoc(doc(db, 'users', firebaseUser.uid))
+        if (docSnap.exists()) {
+          setUser({ id: firebaseUser.uid, email: firebaseUser.email, ...docSnap.data() })
+        }
+      } else {
+        setUser(null)
+      }
+      setLoading(false)
+    })
+    return () => unsubscribe()
+  }, [])
+
+  // ── LOGIN ─────────────────────────────────────────────────────────
   const login = async (email, password) => {
-    // Replace with real API call:
-    // const res = await axios.post('http://localhost:5000/api/auth/login', { email, password })
-    // setUser(res.data.user); localStorage.setItem('token', res.data.token)
-
-    // Mock login for now:
-    const mockUsers = {
-      'farmer@test.com':     { id: '1', firstName: 'farmer',  lastName: 'far',   role: 'farmer',     wilaya: 'Bouira' },
-      'supplier@test.com':   { id: '2', firstName: 'supplier', lastName: 'supp',    role: 'supplier',   wilaya: 'Alger' },
-      'technician@test.com': { id: '3', firstName: 'technician',lastName: 'tech',  role: 'technician', wilaya: 'Bouira'  },
+    try {
+      const result = await signInWithEmailAndPassword(auth, email, password)
+      const docSnap = await getDoc(doc(db, 'users', result.user.uid))
+      if (docSnap.exists()) {
+        const userData = { id: result.user.uid, email, ...docSnap.data() }
+        setUser(userData)
+        return { success: true, role: userData.role }
+      }
+      return { success: false, error: 'User data not found.' }
+    } catch (err) {
+      return { success: false, error: getErrorMessage(err.code) }
     }
-    const found = mockUsers[email]
-    if (found && password === '123') {
-      setUser({ ...found, email, token: 'mock-jwt-token' })
-      return { success: true, role: found.role }
-    }
-    return { success: false, error: 'Invalid email or password' }
   }
 
+  // ── SIGNUP ────────────────────────────────────────────────────────
   const signup = async (data) => {
-    // Replace with: await axios.post('http://localhost:5000/api/auth/register', data)
-    setUser({ ...data, id: Date.now().toString(), token: 'mock-jwt-token' })
-    return { success: true, role: data.role }
+    try {
+      const result = await createUserWithEmailAndPassword(auth, data.email, data.password)
+      const uid = result.user.uid
+
+      // Save user profile in Firestore
+      const userData = {
+        firstName: data.firstName,
+        lastName:  data.lastName,
+        email:     data.email,
+        role:      data.role,
+        wilaya:    data.wilaya,
+        createdAt: new Date()
+      }
+      await setDoc(doc(db, 'users', uid), userData)
+      setUser({ id: uid, ...userData })
+      return { success: true, role: data.role }
+    } catch (err) {
+      return { success: false, error: getErrorMessage(err.code) }
+    }
   }
 
-  const logout = () => {
+  // ── LOGOUT ────────────────────────────────────────────────────────
+  const logout = async () => {
+    await signOut(auth)
     setUser(null)
-    localStorage.removeItem('token')
   }
 
   return (
-    <AuthContext.Provider value={{ user, login, signup, logout }}>
-      {children}
+    <AuthContext.Provider value={{ user, login, signup, logout, loading }}>
+      {/* Don't render app until Firebase checks session */}
+      {!loading && children}
     </AuthContext.Provider>
   )
 }
 
 export function useAuth() {
   return useContext(AuthContext)
+}
+
+// ── Firebase error messages ────────────────────────────────────────
+function getErrorMessage(code) {
+  switch (code) {
+    case 'auth/user-not-found':      return 'No account found with this email.'
+    case 'auth/wrong-password':      return 'Incorrect password. Try again.'
+    case 'auth/email-already-in-use':return 'This email is already registered.'
+    case 'auth/weak-password':       return 'Password must be at least 6 characters.'
+    case 'auth/invalid-email':       return 'Please enter a valid email address.'
+    case 'auth/too-many-requests':   return 'Too many attempts. Please try again later.'
+    default:                         return 'Something went wrong. Please try again.'
+  }
 }

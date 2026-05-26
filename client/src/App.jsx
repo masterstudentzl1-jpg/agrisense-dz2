@@ -10,6 +10,7 @@ import Contact from './pages/Contact'
 import { Login, Signup } from './pages/AuthPages'
 import Dashboard from './pages/Dashboard'
 import ScrollToTop from './components/ScrollToTop'
+import AdminPanel from './pages/AdminPanel'
 
 // Pages that should NOT show Navbar or Footer
 const AUTH_ROUTES = ['/login', '/signup', '/dashboard']
@@ -32,6 +33,7 @@ function Layout() {
         <Route path="/login"     element={<Login />} />
         <Route path="/signup"    element={<Signup />} />
        <Route path="/dashboard" element={<Dashboard />} />
+       <Route path="/admin" element={<AdminPanel />} />
       </Routes>
 
       {!isAuthPage && <Footer />}
