@@ -289,12 +289,7 @@ export function Login() {
             <h2>Sign in</h2>
             <p className="card-sub">No account yet? <Link to="/signup">Create one free →</Link></p>
 
-            <div className="test-hint">
-              <p>Test accounts — password: 123</p>
-              {['farmer@test.com','supplier@test.com','technician@test.com'].map(e => (
-                <div key={e}><span>{e}</span></div>
-              ))}
-            </div>
+            
 
             {error && (
               <div className="error-msg">
