@@ -274,7 +274,7 @@ export function Login() {
               {[
                 { icon: 'chart',   text: 'Real-time crop monitoring dashboard' },
                 { icon: 'wifi',    text: 'Personalized alerts for your farm' },
-                { icon: 'tractor', text: 'AI-powered yield forecasts' },
+                { icon: 'tractor', text: 'Data-driven yield forecasts' },
               ].map((item, i) => (
                 <div key={i} className="auth-check-item">
                   <div className="check-icon"><Ic name="check" size={11} /></div>
