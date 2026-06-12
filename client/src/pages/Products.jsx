@@ -26,6 +26,14 @@ const Icons = {
   card:        ['M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z'],
   copy:        ['M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75'],
   shield:      'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
+  eye:         'M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z M15 12a3 3 0 11-6 0 3 3 0 016 0z',
+  zap:         'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z',
+  wifi:        ['M1.371 8.143c5.858-5.857 15.356-5.857 21.213 0','M5.793 12.564c3.417-3.416 8.963-3.416 12.38 0','M10.214 17.005a3 3 0 013.572 0','M12 20.25h.008v.008H12v-.008z'],
+  sun:         'M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z',
+  leaf:        'M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3',
+  info:        ['M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z'],
+  cpu:         ['M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z'],
+  quote:       'M3.891 17.11a2.25 2.25 0 01-.52-2.367l1.5-4.5A2.25 2.25 0 016.997 8.75H9a.75.75 0 01.75.75v3a.75.75 0 01-.75.75H7.65l-.45 1.35a.75.75 0 01-.71.524H3.891zm10.5 0a2.25 2.25 0 01-.52-2.367l1.5-4.5a2.25 2.25 0 012.126-1.493H19.5a.75.75 0 01.75.75v3a.75.75 0 01-.75.75h-1.35l-.45 1.35a.75.75 0 01-.71.524h-2.549z',
 }
 
 const Ic = ({ name, size = 16, style = {}, strokeWidth = 1.5 }) => {
@@ -39,10 +47,307 @@ const Ic = ({ name, size = 16, style = {}, strokeWidth = 1.5 }) => {
   )
 }
 
+const WILAYAS = ['Alger','Oran','Constantine','Annaba','Blida','Sétif','Biskra','Tizi Ouzou','Batna','Béjaïa','Médéa','Bouira','Tlemcen','Other']
+const categories = ['All', 'Sensors', 'Irrigation', 'Monitoring', 'Software']
+const DELIVERY_FEE = 500
+const STEPS = ['Order Review', 'Delivery Info', 'Payment', 'Confirmation']
+
+// ─── PRODUCT DETAIL MODAL ─────────────────────────────────────────────────────
+function ProductDetailModal({ product, onClose, onAddToCart }) {
+  const [added, setAdded] = useState(false)
+
+  const handleAdd = () => {
+    onAddToCart(product)
+    setAdded(true)
+    setTimeout(() => setAdded(false), 2000)
+  }
+
+  const features = product.features || []
+  const specs = product.specs || {}
+  const specEntries = typeof specs === 'object' && !Array.isArray(specs)
+    ? Object.entries(specs)
+    : []
+
+  const hasFeatures = features.length > 0
+  const hasSpecs = specEntries.length > 0
+
+  return (
+    <div style={{
+      position: 'fixed', inset: 0,
+      background: 'rgba(0,0,0,0.55)',
+      zIndex: 450,
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      padding: '1rem',
+      backdropFilter: 'blur(6px)',
+      WebkitBackdropFilter: 'blur(6px)',
+    }} onClick={e => { if (e.target === e.currentTarget) onClose() }}>
+
+      <div style={{
+        background: '#fff',
+        borderRadius: '20px',
+        width: '100%',
+        maxWidth: '820px',
+        maxHeight: '92vh',
+        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        boxShadow: '0 32px 80px rgba(0,0,0,0.28)',
+        animation: 'modalIn 0.28s cubic-bezier(0.16,1,0.3,1)',
+        fontFamily: "'Manrope', sans-serif",
+      }}>
+
+        {/* ── IMAGE HERO ── */}
+        <div style={{
+          position: 'relative',
+          height: '300px',
+          flexShrink: 0,
+          overflow: 'hidden',
+          borderRadius: '20px 20px 0 0',
+        }}>
+          <img
+            src={product.bg}
+            alt={product.name}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+          {/* dark gradient only at the bottom where the name sits */}
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.05) 55%, transparent 100%)',
+          }} />
+
+          {/* X close button — top right */}
+          <button
+            onClick={onClose}
+            style={{
+              position: 'absolute', top: '14px', right: '14px',
+              width: '34px', height: '34px',
+              borderRadius: '50%', border: 'none',
+              background: 'rgba(255,255,255,0.88)',
+              backdropFilter: 'blur(8px)',
+              cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              color: '#1a1a1a',
+              transition: 'background 0.15s',
+              zIndex: 2,
+            }}
+            onMouseEnter={e => e.currentTarget.style.background = '#fff'}
+            onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.88)'}
+          >
+            <Ic name="close" size={15} strokeWidth={2.2} />
+          </button>
+
+          {/* Product name — bottom-left of image, like the screenshot */}
+          <div style={{
+            position: 'absolute', bottom: '20px', left: '24px', right: '24px', zIndex: 1,
+          }}>
+            <h2 style={{
+              margin: 0,
+              fontSize: '1.75rem',
+              fontWeight: 800,
+              color: '#fff',
+              letterSpacing: '-0.02em',
+              lineHeight: 1.1,
+              textShadow: '0 2px 12px rgba(0,0,0,0.3)',
+            }}>
+              {product.name}
+            </h2>
+          </div>
+        </div>
+
+        {/* ── SCROLLABLE BODY ── */}
+        <div style={{ flex: 1, overflowY: 'auto', padding: '28px 32px 0 32px' }}>
+
+          {/* Description paragraph */}
+          <p style={{
+            margin: '0 0 28px 0',
+            fontSize: '1rem',
+            color: '#4b5563',
+            lineHeight: 1.7,
+            fontWeight: 400,
+          }}>
+            {product.desc}
+            {product.longDesc && ` ${product.longDesc}`}
+          </p>
+
+          {/* Features + Specifications two-column grid */}
+          {(hasFeatures || hasSpecs) && (
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: hasFeatures && hasSpecs ? '1fr 1fr' : '1fr',
+              gap: '2rem',
+              paddingBottom: '28px',
+            }}>
+
+              {/* FEATURES column */}
+              {hasFeatures && (
+                <div>
+                  <h3 style={{
+                    margin: '0 0 16px 0',
+                    fontSize: '1rem',
+                    fontWeight: 800,
+                    color: '#111827',
+                    letterSpacing: '-0.01em',
+                  }}>
+                    Features
+                  </h3>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                    {features.map((f, i) => (
+                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        {/* Green circle check — matches screenshot exactly */}
+                        <div style={{
+                          width: '22px', height: '22px',
+                          borderRadius: '50%',
+                          border: '2px solid #22c55e',
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          flexShrink: 0,
+                          color: '#22c55e',
+                        }}>
+                          <Ic name="checkSimple" size={12} strokeWidth={2.8} />
+                        </div>
+                        <span style={{
+                          fontSize: '0.93rem',
+                          color: '#374151',
+                          fontWeight: 500,
+                          lineHeight: 1.4,
+                        }}>
+                          {f}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* SPECIFICATIONS column */}
+              {hasSpecs && (
+                <div>
+                  <h3 style={{
+                    margin: '0 0 16px 0',
+                    fontSize: '1rem',
+                    fontWeight: 800,
+                    color: '#111827',
+                    letterSpacing: '-0.01em',
+                  }}>
+                    Specifications
+                  </h3>
+                  <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    {specEntries.map(([key, val], i) => (
+                      <div key={i} style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'baseline',
+                        padding: '9px 0',
+                        borderBottom: i < specEntries.length - 1 ? '1px solid #f0f0f0' : 'none',
+                      }}>
+                        <span style={{
+                          fontSize: '0.9rem',
+                          color: '#9ca3af',
+                          fontWeight: 500,
+                        }}>
+                          {key}
+                        </span>
+                        <span style={{
+                          fontSize: '0.93rem',
+                          color: '#111827',
+                          fontWeight: 700,
+                          textAlign: 'right',
+                          marginLeft: '16px',
+                        }}>
+                          {val}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+            </div>
+          )}
+        </div>
+
+        {/* ── FOOTER — price + button ── */}
+        <div style={{
+          padding: '20px 32px 28px 32px',
+          flexShrink: 0,
+          background: '#fff',
+        }}>
+          {/* Price label + value */}
+          <div style={{ marginBottom: '14px' }}>
+            <div style={{
+              fontSize: '0.78rem',
+              color: '#9ca3af',
+              fontWeight: 600,
+              marginBottom: '3px',
+              letterSpacing: '0.02em',
+            }}>
+              Price
+            </div>
+            <div style={{
+              fontSize: '1.65rem',
+              fontWeight: 800,
+              color: '#111827',
+              letterSpacing: '-0.02em',
+              lineHeight: 1,
+            }}>
+              {product.price?.toLocaleString()} <span style={{ fontSize: '1rem', fontWeight: 700, color: '#111827' }}>DZD</span>
+            </div>
+          </div>
+
+          {/* Full-width green button — "Request Quote →" style like screenshot */}
+          <button
+            onClick={handleAdd}
+            style={{
+              width: '100%',
+              padding: '15px 24px',
+              border: 'none',
+              borderRadius: '50px',
+              background: added
+                ? 'linear-gradient(135deg, #15803d, #166534)'
+                : 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
+              color: '#fff',
+              fontSize: '1rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              fontFamily: "'Manrope', sans-serif",
+              letterSpacing: '0.01em',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '10px',
+              boxShadow: added
+                ? '0 4px 20px rgba(22,101,52,0.35)'
+                : '0 6px 24px rgba(34,197,94,0.40)',
+              transition: 'all 0.2s ease',
+            }}
+            onMouseEnter={e => { if (!added) e.currentTarget.style.transform = 'translateY(-1px)' }}
+            onMouseLeave={e => { e.currentTarget.style.transform = 'none' }}
+          >
+            {added ? (
+              <>
+                <Ic name="checkSimple" size={17} strokeWidth={2.5} />
+                Added to Cart
+              </>
+            ) : (
+              <>
+                Add to Cart
+                <Ic name="arrow" size={17} />
+              </>
+            )}
+          </button>
+        </div>
+
+      </div>
+    </div>
+  )
+}
+
+// ─── STYLES ───────────────────────────────────────────────────────────────────
 const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Manrope', sans-serif; }
+
+  @keyframes modalIn { from { opacity:0; transform: scale(0.95) translateY(20px); } to { opacity:1; transform: none; } }
 
   .products-hero {
     position: relative; padding: 140px 20px 80px; color: white; text-align: center;
@@ -88,7 +393,6 @@ const styles = `
   .basket-btn-wrap:hover { background: #dcfce7; }
   .basket-count { background: #22c55e; color: #fff; font-size: 0.65rem; font-weight: 800; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 
-  /* BASKET DRAWER */
   .basket-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 500; }
   .basket-drawer {
     position: fixed; top: 0; right: 0; bottom: 0; width: 420px;
@@ -117,11 +421,9 @@ const styles = `
   .qty-num { font-size: 0.9rem; font-weight: 800; color: #0d1f0f; min-width: 22px; text-align: center; }
   .remove-btn { background: none; border: none; cursor: pointer; color: #d1d5db; padding: 4px; transition: color 0.15s; display: flex; align-items: center; }
   .remove-btn:hover { color: #ef4444; }
-
   .basket-summary { padding: 1rem 1.5rem; background: #f9fafb; border-top: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; }
   .basket-summary-row { display: flex; justify-content: space-between; font-size: 0.82rem; color: #6b7280; margin-bottom: 0.4rem; }
   .basket-summary-row.total { font-size: 1.05rem; font-weight: 800; color: #0d1f0f; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid #e5e7eb; margin-bottom: 0; }
-
   .basket-footer { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
   .btn-checkout {
     width: 100%; padding: 0.95rem; border: none; border-radius: 12px;
@@ -134,7 +436,6 @@ const styles = `
   .btn-clear { width: 100%; padding: 0.75rem; border: 1.5px solid #e5e7eb; border-radius: 12px; background: #fff; color: #6b7280; font-size: 0.85rem; font-weight: 600; cursor: pointer; font-family: 'Manrope', sans-serif; transition: all 0.15s; display: flex; align-items: center; justify-content: center; gap: 6px; }
   .btn-clear:hover { border-color: #ef4444; color: #ef4444; }
 
-  /* CHECKOUT MODAL */
   .checkout-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 600; display: flex; align-items: center; justify-content: center; padding: 1rem; }
   .checkout-modal {
     background: #fff; border-radius: 24px; width: 100%; max-width: 680px;
@@ -142,7 +443,6 @@ const styles = `
     box-shadow: 0 24px 60px rgba(0,0,0,0.3);
     animation: modalIn 0.3s ease;
   }
-  @keyframes modalIn { from { opacity:0; transform: scale(0.95) translateY(20px); } to { opacity:1; transform: none; } }
   .checkout-header {
     padding: 1.5rem 1.75rem; border-bottom: 1px solid #e5e7eb;
     display: flex; align-items: center; justify-content: space-between;
@@ -152,8 +452,6 @@ const styles = `
   .checkout-close { width: 34px; height: 34px; border-radius: 50%; border: 1px solid #e5e7eb; background: #f9fafb; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #6b7280; transition: background 0.15s; }
   .checkout-close:hover { background: #fef2f2; color: #ef4444; }
   .checkout-body { padding: 1.75rem; }
-
-  /* Steps */
   .checkout-steps { display: flex; gap: 0; margin-bottom: 2rem; }
   .checkout-step { display: flex; align-items: center; gap: 8px; flex: 1; }
   .step-num { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; flex-shrink: 0; }
@@ -167,8 +465,6 @@ const styles = `
   .step-line { flex: 1; height: 2px; margin: 0 8px; }
   .step-line.done { background: #22c55e; }
   .step-line.pending { background: #e5e7eb; }
-
-  /* Order summary */
   .checkout-order-items { margin-bottom: 1.5rem; }
   .checkout-order-items h3 { font-size: 0.88rem; font-weight: 700; color: #374151; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
   .co-item { display: flex; align-items: center; gap: 12px; padding: 0.75rem 0; border-bottom: 1px solid #f3f4f6; }
@@ -178,8 +474,6 @@ const styles = `
   .co-name { flex: 1; font-size: 0.88rem; font-weight: 700; color: #0d1f0f; }
   .co-qty { font-size: 0.78rem; color: #9ca3af; margin-top: 1px; }
   .co-price { font-size: 0.9rem; font-weight: 800; color: #16a34a; }
-
-  /* Form */
   .checkout-section-title { font-size: 0.88rem; font-weight: 800; color: #374151; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #f3f4f6; display: flex; align-items: center; gap: 8px; }
   .checkout-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.25rem; }
   .checkout-form-grid.full { grid-template-columns: 1fr; }
@@ -192,14 +486,8 @@ const styles = `
   }
   .co-field input:focus, .co-field select:focus, .co-field textarea:focus { border-color: #22c55e; background: #fff; }
   .co-field textarea { resize: vertical; min-height: 80px; }
-
-  /* Payment */
   .payment-options { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.25rem; }
-  .payment-opt {
-    display: flex; align-items: flex-start; gap: 12px;
-    border: 2px solid #e5e7eb; border-radius: 14px; padding: 1rem;
-    cursor: pointer; transition: all 0.15s;
-  }
+  .payment-opt { display: flex; align-items: flex-start; gap: 12px; border: 2px solid #e5e7eb; border-radius: 14px; padding: 1rem; cursor: pointer; transition: all 0.15s; }
   .payment-opt.selected { border-color: #22c55e; background: #f0fdf4; }
   .payment-opt-radio { width: 18px; height: 18px; border-radius: 50%; border: 2px solid #d1d5db; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
   .payment-opt.selected .payment-opt-radio { border-color: #22c55e; }
@@ -212,8 +500,6 @@ const styles = `
   .badge-algerie-poste { background: #fef3c7; color: #d97706; }
   .badge-cib { background: #eff6ff; color: #1d4ed8; }
   .badge-cash { background: #f0fdf4; color: #16a34a; }
-
-  /* Algérie Poste */
   .ap-panel { background: #fffbeb; border: 1.5px solid #fde68a; border-radius: 14px; padding: 1.25rem; margin-bottom: 1.25rem; }
   .ap-panel-title { font-size: 0.88rem; font-weight: 800; color: #92400e; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
   .ap-steps { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem; }
@@ -228,8 +514,6 @@ const styles = `
   .ap-info-val { font-weight: 800; color: #78350f; font-family: monospace; }
   .ap-copy-btn { background: #fef3c7; border: 1px solid #fcd34d; border-radius: 6px; padding: 3px 8px; font-size: 0.68rem; font-weight: 700; color: #92400e; cursor: pointer; font-family: 'Manrope', sans-serif; transition: background 0.15s; display: flex; align-items: center; gap: 4px; }
   .ap-copy-btn:hover { background: #fde68a; }
-
-  /* CIB */
   .cib-panel { background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 14px; padding: 1.25rem; margin-bottom: 1.25rem; }
   .cib-panel-title { font-size: 0.88rem; font-weight: 800; color: #1e40af; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px; }
   .cib-logos { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
@@ -240,36 +524,29 @@ const styles = `
   .cib-field input { padding: 0.65rem 0.85rem; border: 1.5px solid #bfdbfe; border-radius: 8px; font-size: 0.85rem; font-family: 'Manrope', sans-serif; background: #fff; outline: none; width: 100%; }
   .cib-field input:focus { border-color: #3b82f6; }
   .cib-secure { font-size: 0.72rem; color: #6b7280; display: flex; align-items: center; gap: 6px; margin-top: 0.5rem; }
-
-  /* Bank */
   .bank-panel { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 14px; padding: 1.25rem; margin-bottom: 1.25rem; font-size: 0.82rem; color: #374151; line-height: 1.7; }
-
-  /* Totals */
   .checkout-totals { background: #f9fafb; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.25rem; }
   .ct-row { display: flex; justify-content: space-between; font-size: 0.85rem; color: #6b7280; margin-bottom: 0.4rem; }
   .ct-row.total { font-size: 1.05rem; font-weight: 800; color: #0d1f0f; border-top: 1px solid #e5e7eb; padding-top: 0.5rem; margin-top: 0.25rem; margin-bottom: 0; }
   .ct-row.total span:last-child { color: #16a34a; }
-
-  /* Success */
   .checkout-success { text-align: center; padding: 2rem 1rem; }
   .success-icon { display: flex; justify-content: center; margin-bottom: 1rem; color: #22c55e; }
   .checkout-success h3 { font-size: 1.4rem; font-weight: 800; color: #0d1f0f; margin-bottom: 0.5rem; }
   .checkout-success p { font-size: 0.9rem; color: #6b7280; margin-bottom: 0.25rem; }
   .order-ref { display: inline-block; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 6px 14px; font-size: 0.82rem; font-weight: 700; color: #16a34a; margin: 1rem 0; }
-
   .checkout-nav { display: flex; gap: 0.75rem; }
   .btn-back { flex: 0; padding: 0.85rem 1.5rem; border: 1.5px solid #e5e7eb; border-radius: 12px; background: #fff; color: #374151; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: 'Manrope', sans-serif; white-space: nowrap; display: flex; align-items: center; gap: 6px; }
   .btn-next { flex: 1; padding: 0.85rem; border: none; border-radius: 12px; background: linear-gradient(135deg,#22c55e,#16a34a); color: #fff; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: 'Manrope', sans-serif; box-shadow: 0 6px 20px rgba(34,197,94,0.3); transition: transform 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; }
   .btn-next:hover { transform: translateY(-1px); }
   .btn-next:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
-  /* Products */
   .products-main { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem 5rem; }
   .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
   .product-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 20px; overflow: hidden; transition: box-shadow 0.3s, transform 0.3s; }
   .product-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.1); transform: translateY(-4px); }
   .card-img { height: 200px; position: relative; overflow: hidden; }
-  .card-img img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; transition: transform 0.4s ease; }
+  .product-card:hover .card-img img { transform: scale(1.04); }
   .card-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.35), transparent); }
   .badge-row { position: absolute; bottom: 10px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: center; }
   .badge { font-size: 0.72rem; font-weight: 800; padding: 4px 12px; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.06em; }
@@ -282,13 +559,15 @@ const styles = `
   .card-category { font-size: 0.72rem; font-weight: 700; color: #22c55e; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.35rem; }
   .card-body h3 { font-size: 1.05rem; font-weight: 700; color: #0d1f0f; margin-bottom: 0.4rem; }
   .card-body p { font-size: 0.85rem; color: #6b7280; line-height: 1.6; margin-bottom: 1rem; }
-  .card-footer { display: flex; align-items: center; justify-content: space-between; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
   .card-price { font-size: 1.1rem; font-weight: 800; color: #16a34a; }
   .card-price span { font-size: 0.78rem; font-weight: 500; color: #9ca3af; }
+  .card-actions { display: flex; gap: 6px; align-items: center; }
   .btn-add { display: flex; align-items: center; gap: 6px; background: linear-gradient(135deg, #22c55e, #16a34a); color: #fff; padding: 0.5rem 1.1rem; border-radius: 50px; font-size: 0.82rem; font-weight: 700; border: none; cursor: pointer; font-family: 'Manrope', sans-serif; box-shadow: 0 4px 12px rgba(34,197,94,0.3); transition: transform 0.2s; }
   .btn-add:hover { transform: translateY(-1px); }
+  .btn-details { display: flex; align-items: center; gap: 5px; background: #f0fdf4; border: 1.5px solid #bbf7d0; color: #16a34a; padding: 0.5rem 0.9rem; border-radius: 50px; font-size: 0.82rem; font-weight: 700; cursor: pointer; font-family: 'Manrope', sans-serif; transition: all 0.2s; white-space: nowrap; }
+  .btn-details:hover { background: #dcfce7; border-color: #86efac; }
 
-  /* Toast */
   .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: #0d1f0f; color: #4ade80; padding: 0.75rem 1.5rem; border-radius: 50px; font-size: 0.85rem; font-weight: 700; z-index: 700; box-shadow: 0 8px 24px rgba(0,0,0,0.3); animation: toastIn 0.3s ease; white-space: nowrap; display: flex; align-items: center; gap: 8px; }
   @keyframes toastIn { from { opacity:0; transform: translateX(-50%) translateY(20px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
 
@@ -304,13 +583,7 @@ const styles = `
   }
 `
 
-const WILAYAS = ['Alger','Oran','Constantine','Annaba','Blida','Sétif','Biskra','Tizi Ouzou','Batna','Béjaïa','Médéa','Bouira','Tlemcen','Other']
-const categories = ['All', 'Sensors', 'Irrigation', 'Monitoring', 'Software']
-
-
-const DELIVERY_FEE = 500
-const STEPS = ['Order Review', 'Delivery Info', 'Payment', 'Confirmation']
-
+// ─── CIB FORM ─────────────────────────────────────────────────────────────────
 function CIBForm({ data, onChange, errors }) {
   const fmt = (val, type) => {
     if (type === 'card') return val.replace(/\D/g,'').slice(0,16).replace(/(.{4})/g,'$1 ').trim()
@@ -353,6 +626,7 @@ function CIBForm({ data, onChange, errors }) {
   )
 }
 
+// ─── ALGERIE POSTE PANEL ──────────────────────────────────────────────────────
 function AlgeriePostePanel({ orderRef, total }) {
   const [copied, setCopied] = useState('')
   const ccpNum = '00799999002361050919'
@@ -402,6 +676,7 @@ function AlgeriePostePanel({ orderRef, total }) {
   )
 }
 
+// ─── CHECKOUT MODAL ───────────────────────────────────────────────────────────
 function CheckoutModal({ cart, onClose, onSuccess }) {
   const [step, setStep] = useState(0)
   const [payment, setPayment] = useState('algerie_poste')
@@ -458,7 +733,6 @@ function CheckoutModal({ cart, onClose, onSuccess }) {
           <button className="checkout-close" onClick={onClose}><Ic name="close" size={16} /></button>
         </div>
         <div className="checkout-body">
-          {/* Steps */}
           <div className="checkout-steps">
             {STEPS.map((s, i) => (
               <div key={i} className="checkout-step" style={{ flex: i < STEPS.length-1 ? '1' : 'none' }}>
@@ -471,7 +745,6 @@ function CheckoutModal({ cart, onClose, onSuccess }) {
             ))}
           </div>
 
-          {/* STEP 0 — Order Review */}
           {step === 0 && (<>
             <div className="checkout-order-items">
               <h3>Your Order ({cart.length} item{cart.length !== 1 ? 's' : ''})</h3>
@@ -497,7 +770,6 @@ function CheckoutModal({ cart, onClose, onSuccess }) {
             </div>
           </>)}
 
-          {/* STEP 1 — Delivery Info */}
           {step === 1 && (<>
             <div className="checkout-section-title"><Ic name="truck" size={15}/> Delivery Information</div>
             <div className="checkout-form-grid">
@@ -523,16 +795,13 @@ function CheckoutModal({ cart, onClose, onSuccess }) {
             </div>
           </>)}
 
-          {/* STEP 2 — Payment */}
           {step === 2 && (<>
             <div className="checkout-section-title"><Ic name="card" size={15}/> Payment Method</div>
             <div className="payment-options">
               {paymentOpts.map(opt => (
                 <div key={opt.key} className={`payment-opt ${payment === opt.key ? 'selected' : ''}`} onClick={() => setPayment(opt.key)}>
                   <div className="payment-opt-radio">{payment === opt.key && <div className="payment-opt-dot"/>}</div>
-                  <div className="payment-opt-icon" style={{background:opt.iconBg,color:opt.iconColor}}>
-                    <Ic name={opt.iconName} size={18}/>
-                  </div>
+                  <div className="payment-opt-icon" style={{background:opt.iconBg,color:opt.iconColor}}><Ic name={opt.iconName} size={18}/></div>
                   <div className="payment-opt-content">
                     <div className="payment-opt-label">{opt.label}</div>
                     <div className="payment-opt-sub">{opt.sub}</div>
@@ -571,7 +840,6 @@ function CheckoutModal({ cart, onClose, onSuccess }) {
             </div>
           </>)}
 
-          {/* STEP 3 — Confirmation */}
           {step === 3 && (
             <div className="checkout-success">
               <div className="success-icon"><Ic name="party" size={64} /></div>
@@ -580,17 +848,12 @@ function CheckoutModal({ cart, onClose, onSuccess }) {
               <div className="order-ref">Order #{orderRef}</div>
               {payment === 'algerie_poste' && (
                 <div style={{background:'#fffbeb',border:'1px solid #fde68a',borderRadius:'14px',padding:'1rem',margin:'1rem 0',textAlign:'left'}}>
-                  <p style={{fontSize:'0.85rem',fontWeight:700,color:'#92400e',marginBottom:'0.5rem',display:'flex',alignItems:'center',gap:6}}><Ic name="clock_kpi" size={14}/> Next step — Complete your CCP payment:</p>
+                  <p style={{fontSize:'0.85rem',fontWeight:700,color:'#92400e',marginBottom:'0.5rem'}}>Next step — Complete your CCP payment:</p>
                   <p style={{fontSize:'0.82rem',color:'#78350f',lineHeight:1.6}}>
                     Please transfer <strong>{total.toLocaleString()} DZD</strong> to CCP <strong>00799-01234567890 (Clé 23)</strong> with reference <strong>#{orderRef}</strong>.<br/>
                     Send your receipt to <strong>orders@agrisensedz.dz</strong> to confirm.
                   </p>
                 </div>
-              )}
-              {payment === 'cib' && (
-                <p style={{fontSize:'0.82rem',color:'#6b7280',margin:'0.5rem 0',display:'flex',alignItems:'center',justifyContent:'center',gap:6}}>
-                  <Ic name="card" size={14}/> Payment processed · Confirmation sent to {form.email || form.phone}
-                </p>
               )}
               <p style={{fontSize:'0.82rem',color:'#9ca3af',marginTop:'0.5rem',display:'flex',alignItems:'center',justifyContent:'center',gap:6}}>
                 <Ic name="mapPin" size={13}/> Delivering to <strong>{form.wilaya}</strong> · {paymentLabel()}
@@ -598,7 +861,7 @@ function CheckoutModal({ cart, onClose, onSuccess }) {
               <p style={{fontSize:'0.82rem',color:'#9ca3af',marginTop:'0.25rem',display:'flex',alignItems:'center',justifyContent:'center',gap:6}}>
                 <Ic name="truck" size={13}/> Estimated delivery: <strong>3–5 business days</strong>
               </p>
-              <div style={{marginTop:'2rem',display:'flex',gap:'0.75rem',justifyContent:'center',flexWrap:'wrap'}}>
+              <div style={{marginTop:'2rem',display:'flex',gap:'0.75rem',justifyContent:'center'}}>
                 <button className="btn-next" style={{maxWidth:'200px'}} onClick={onClose}>Continue Shopping</button>
               </div>
             </div>
@@ -609,29 +872,31 @@ function CheckoutModal({ cart, onClose, onSuccess }) {
   )
 }
 
+// ─── MAIN COMPONENT ───────────────────────────────────────────────────────────
 export default function Products() {
   const [active, setActive] = useState('All')
-const [cart, setCart] = useState([])
-const [products, setProducts] = useState([])
-const [loadingProducts, setLoadingProducts] = useState(true)
-
-useEffect(() => {
-  const fetchProducts = async () => {
-    try {
-      const snapshot = await getDocs(collection(db, 'products'))
-      const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-      setProducts(data)
-    } catch (err) {
-      console.error('Error loading products:', err)
-    } finally {
-      setLoadingProducts(false)
-    }
-  }
-  fetchProducts()
-}, [])
+  const [cart, setCart] = useState([])
+  const [products, setProducts] = useState([])
+  const [loadingProducts, setLoadingProducts] = useState(true)
   const [basketOpen, setBasketOpen] = useState(false)
   const [checkoutOpen, setCheckoutOpen] = useState(false)
   const [toast, setToast] = useState('')
+  const [detailProduct, setDetailProduct] = useState(null) // ← NEW: for detail modal
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const snapshot = await getDocs(collection(db, 'products'))
+        const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+        setProducts(data)
+      } catch (err) {
+        console.error('Error loading products:', err)
+      } finally {
+        setLoadingProducts(false)
+      }
+    }
+    fetchProducts()
+  }, [])
 
   const filtered = active === 'All' ? products : products.filter(p => p.category === active)
   const totalItems = cart.reduce((s, i) => s + i.qty, 0)
@@ -651,17 +916,17 @@ useEffect(() => {
   const handleOrderSuccess = () => setCart([])
 
   useEffect(() => {
-  if (loadingProducts) return
-  const timer = setTimeout(() => {
-    const els = document.querySelectorAll('.reveal')
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
-    }, { threshold: 0.12 })
-    els.forEach(el => obs.observe(el))
-    return () => obs.disconnect()
-  }, 100)
-  return () => clearTimeout(timer)
-}, [loadingProducts])
+    if (loadingProducts) return
+    const timer = setTimeout(() => {
+      const els = document.querySelectorAll('.reveal')
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
+      }, { threshold: 0.12 })
+      els.forEach(el => obs.observe(el))
+      return () => obs.disconnect()
+    }, 100)
+    return () => clearTimeout(timer)
+  }, [loadingProducts])
 
   return (
     <>
@@ -708,16 +973,33 @@ useEffect(() => {
                 <h3>{p.name}</h3>
                 <p>{p.desc}</p>
                 <div className="card-footer">
-                  <div className="card-price">{p.price.toLocaleString()} DZD <span>/ unit</span></div>
-                  <button className="btn-add" onClick={() => addToCart(p)}>
-                    <Ic name="plus" size={13} strokeWidth={2.5} /> Add to Cart
-                  </button>
+                  <div className="card-price">{p.price?.toLocaleString()} DZD <span>/ unit</span></div>
+                  <div className="card-actions">
+                    {/* Show "Details" only if product has features or specs */}
+                    {(p.features?.length > 0 || p.specs) && (
+                      <button className="btn-details" onClick={() => setDetailProduct(p)}>
+                        <Ic name="eye" size={13} /> Details
+                      </button>
+                    )}
+                    <button className="btn-add" onClick={() => addToCart(p)}>
+                      <Ic name="plus" size={13} strokeWidth={2.5} /> Add
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Product Detail Modal */}
+      {detailProduct && (
+        <ProductDetailModal
+          product={detailProduct}
+          onClose={() => setDetailProduct(null)}
+          onAddToCart={(p) => { addToCart(p); setDetailProduct(null) }}
+        />
+      )}
 
       {/* Cart Drawer */}
       {basketOpen && (<>

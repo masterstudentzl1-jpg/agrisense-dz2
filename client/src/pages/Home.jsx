@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Thermometer, Droplets, Wifi, Brain, BatteryCharging, BarChart } from "lucide-react";
+import {
+  Thermometer,
+  Droplets,
+  Wifi,
+  BatteryCharging,
+  BarChart,
+  ShoppingCart,
+  Truck
+} from "lucide-react";
 
 const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
@@ -143,12 +151,36 @@ const styles = `
 `;
 
 const features = [
-  { icon: Thermometer, title: "Real-Time Soil Monitoring", desc: "Track moisture, temperature, and pH levels with millimeter precision across your entire field." },
-  { icon: Droplets, title: "Smart Irrigation Control", desc: "Automated watering schedules that adapt to real sensor data — save up to 40% water." },
-  { icon: Wifi, title: "LoRa & 4G Connectivity", desc: "Sensors work in remote Algerian terrain with long-range LoRa or 4G — no WiFi needed." },
-  { icon: Brain, title: "AI Crop Predictions", desc: "Machine learning models trained on Algerian crops to forecast yield and detect disease early." },
-  { icon: BatteryCharging, title: "Solar-Powered Hardware", desc: "All devices run on solar energy — zero electricity cost, built for the Algerian sun." },
-  { icon: BarChart, title: "Live Dashboard", desc: "Web and mobile dashboard with charts, alerts, and historical data for every sensor." },
+  {
+    icon: Thermometer,
+    title: "Real-Time Soil Monitoring",
+    desc: "Monitor soil moisture, temperature, and environmental conditions in real time to improve crop management."
+  },
+  {
+    icon: Droplets,
+    title: "Smart Irrigation Management",
+    desc: "Optimize water usage with sensor-based irrigation recommendations and automated control systems."
+  },
+  {
+    icon: Wifi,
+    title: "LoRa & 4G Connectivity",
+    desc: "Reliable long-range communication designed for remote agricultural areas across Algeria."
+  },
+  {
+    icon: ShoppingCart,
+    title: "IoT Equipment Marketplace",
+    desc: "Access a wide range of agricultural sensors, smart irrigation devices, weather stations, and monitoring solutions."
+  },
+  {
+    icon: BatteryCharging,
+    title: "Solar-Powered Devices",
+    desc: "Energy-efficient agricultural equipment powered by solar technology for continuous field operation."
+  },
+  {
+    icon: BarChart,
+    title: "Monitoring Dashboard",
+    desc: "View sensor readings, receive alerts, and analyze historical data through an intuitive web and mobile platform."
+  },
 ];
 
 const products = [
